@@ -7,5 +7,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
 	integrations: [tailwind(), robotsTxt({sitemap:'https://ear-diary.comsitemap-index.xml'}), sitemap()],
-  site: 'https://ear-diary.com'
+  site: 'https://ear-diary.com',
+	  remotePatters: [{
+		  hostname:'**.microcms-assets.io'}]
 });
