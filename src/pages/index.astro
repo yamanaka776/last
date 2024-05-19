@@ -1,6 +1,7 @@
 ---
 import { getBlogs } from "../library/microcms";
 const response = await getBlogs({ fields: ["id", "title","eyecatch"] });
+import { Image } from 'astro:assets';
 ---
 
 <html lang="en">
