@@ -32,7 +32,6 @@ import { Image } from 'astro:assets';
       {
         response.contents.map((content: any) => (
           <li class="flex flex-wrap">
-		  <Image src='${content.eyecatch.url}?fm&fit=clamp&w=200&h=104' alt="記事のアイキャッチ" width=200 height=104 />
             <a href={content.id}>{content.title}</a>
           </li>
         ))
