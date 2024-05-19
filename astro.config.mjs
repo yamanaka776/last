@@ -8,6 +8,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
 	integrations: [tailwind(), robotsTxt({sitemap:'https://ear-diary.comsitemap-index.xml'}), sitemap()],
   site: 'https://ear-diary.com',
-	  remotePatters: [{
-		  hostname:'**.microcms-assets.io'}]
+	image:{ 
+	remotePatters: [{
+		  hostname:'**.microcms-assets.io'}]}
 });
