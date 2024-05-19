@@ -16,19 +16,10 @@ export async function getStaticPaths() {
 const { blogId } = Astro.params;
 const blog = await getBlogDetail(blogId as string);
 ---
-<Layout title="My first blog with Astro">
+<Layout title={blog.title}>
   <main>
     <h1 class="title">{blog.title}</h1>
     <p class="publishedAt">公開日時：{blog.publishedAt}</p>
-    <div class="post" set:html={blog.content}></div>
+    <div class="post prose lg:prose-xl" set:html={blog.content}></div>
   </main>
 </Layout>
-
-<style>
-  main {
-    margin: auto;
-    padding: 1em;
-    max-width: 60ch;
-  }
-</style>
-

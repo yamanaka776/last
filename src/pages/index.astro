@@ -9,9 +9,25 @@ const response = await getBlogs({ fields: ["id", "title"] });
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>ear-diary</title>
+		<style is:global> @font-face{
+                font-family:'BIZ UDPGothic';
+                src: url(../../public/fonts/biz-udpgothic-v10-japanese_latin-regular.woff2) format("woff2");
+                font-weight:normal;}
+         @font-face{
+                font-family:'BIZ UDPGothic';
+                src: url(../../public/fonts/biz-udpgothic-v10-japanese_latin-700.woff2) format("woff2");
+                font-weight:bold;
+         }
+         body {font-family: "BIZ UDPGothic", "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;}
+</style>
 	</head>
-	<body>
+	<body class="mx-auto">
 	    <ul>
       {
         response.contents.map((content: any) => (

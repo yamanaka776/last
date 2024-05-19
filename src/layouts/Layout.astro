@@ -5,8 +5,9 @@ const { title } = Astro.props
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
-<style> @font-face{
+<style is:global> @font-face{
 		font-family:'BIZ UDPGothic';
 		src: url(../../public/fonts/biz-udpgothic-v10-japanese_latin-regular.woff2) format("woff2");
 		font-weight:normal;}
@@ -14,34 +15,20 @@ const { title } = Astro.props
 		font-family:'BIZ UDPGothic';
 		src: url(../../public/fonts/biz-udpgothic-v10-japanese_latin-700.woff2) format("woff2");
 		font-weight:bold;
-	}
+	 }
+	 body {font-family: "BIZ UDPGothic", "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;}
 </style>
   </head>
   <body>
-  <!-- SVG Logo Image --!>
-	  <svg width="400" height="100" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .title-svg {
-      font-family: 'Arial, sans-serif';
-      font-size: 48px;
-      fill: #333;
-    }
-    .icon-svg {
-      fill: #4CAF50;
-    }
-  </style>
-  <rect width="400" height="100" fill="white"/>
-  <g>
-    <circle class="icon-logo" cx="50" cy="50" r="40"/>
-    <path class="icon-logo" d="M50 20 Q60 50 50 80 Q40 50 50 20 Z" />
-  </g>
-  <text x="100" y="60" class="title-logo">耳日記</text>
-</svg>
-
-    <nav>
-      <a href="#">ホーム</a>
-    </nav>
-    <article>
+  <header>
+	  <a class="logo" href="/"></a>
+  </header>
+    <article class="mx-auto">
       <slot /> <!-- ここにコンテンツが挿入されます -->
     </article>
   </body>
