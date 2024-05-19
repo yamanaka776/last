@@ -10,7 +10,7 @@ content.publishedAt = new Date(content.publishedAt).toLocaleDateString('ja-JP');
 		<ul class="flex flex-wrap">
       {
         response.contents.map((content: any) => (
-          <li class="h-fit rounded border-2 w-64 flex justify-center items-stretch">
+          <li class="rounded border-2 w-64 items-stretch">
 		  <img src=`${content.eyecatch.url}?fm&fit=clamp&w=350&h=183` class="rounded-md" width=350 height=183px> 
 		<div>{content.publishedAt}</div>	  
             <a href={content.id} class="block font-bold">{content.title}</a>
