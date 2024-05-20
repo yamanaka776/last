@@ -7,17 +7,17 @@ content.publishedAt = new Date(content.publishedAt).toLocaleDateString('ja-JP');
 });
 ---
 <Layout title="index">
-		<ul class="flex flex-wrap">
+                <ul class="flex flex-wrap">
       {
-        response.contents.map((content: any) => (
-	<li class="rounded border-2 w-10/12 md:w-4/12 items-stretch m-4">
-		<a href={content.id} class="block w-full h-full">
-		<img src=`${content.eyecatch.url}?fm&fit=clamp&w=350&h=183` class="rounded-md w-10/12" width=350 height=183px> 
-		<div class="text-sm text-slate-400">{content.publishedAt}</div>	  
+       response.contents.slice(0,5).map((content: any) => (
+        <li class="rounded border-2 w-full lg:w-1/3 items-stretch m-4">
+                <a href={content.id} class="block w-full h-full">
+                <img src=`${content.eyecatch.url}?fm&fit=clamp&w=350&h=183` class="rounded-md w-10/12" width=350 height=183px> 
+                <div class="text-sm text-slate-400">{content.publishedAt}</div>   
             <div class="font-bold text-lg">{content.title}</div>
-		</a>
+                </a>
           </li>
         ))
       }
-		</ul>
+                </ul>
 </Layout>
