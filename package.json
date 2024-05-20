@@ -10,10 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/partytown": "^2.1.0",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource/biz-udpgothic": "^5.0.19",
     "@pagefind/default-ui": "^1.1.0",
+    "@playform/compress": "^0.0.4",
+    "@playform/inline": "^0.0.3",
     "astro": "^4.8.6",
     "astro-robots-txt": "^1.0.0",
     "microcms-js-sdk": "^3.1.1",
