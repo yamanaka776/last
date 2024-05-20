@@ -18,7 +18,7 @@ const blog = await getBlogDetail(blogId as string);
 blog.publishedAt = new Date(blog.publishedAt).toLocaleDateString('ja-JP');
 ---
 <Layout title={blog.title}>
-  <main>
+  <main data-pagefind-body>
 	  <img src=`${blog.eyecatch.url}?fm&fit=clamp&w=700&h=366` class="m-4 rounded-md w-10/12" width=700 height=366> 	
     <h1 class="title // @ts-ignore">{blog.title}</h1>
     <p class="publishedAt m-4">公開日時：{blog.publishedAt}</p>
