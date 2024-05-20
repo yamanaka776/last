@@ -10,7 +10,7 @@ content.publishedAt = new Date(content.publishedAt).toLocaleDateString('ja-JP');
 	<div class="border-2 border-slate-400">
                 <ul class="flex flex-wrap">
       {
-       response.contents.slice(0,3).map((content: any) => (
+       response.contents.slice(0,4).map((content: any) => (
         <li class="rounded border-2 w-full lg:w-1/3 items-stretch m-4 bg-slate-100">
                 <a href={content.id} class="block w-full h-full">
                 <img src=`${content.eyecatch.url}?fm&fit=clamp&w=350&h=183` class="rounded-md w-10/12" width=350 height=183px> 
@@ -21,6 +21,8 @@ content.publishedAt = new Date(content.publishedAt).toLocaleDateString('ja-JP');
         ))
       }
                 </ul>
-		<button type="button" class="text-white text-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">More</button>
+		<div class="flex justify-center items-center w-full">
+		<button type="button" onclick="loction.href='/index/1/'" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">More</button>
+		</div>
 		</div>
 </Layout>
