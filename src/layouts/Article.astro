@@ -4,16 +4,16 @@ const {og,  date, title, eyecatch } = Astro.props;
 import { Icon } from 'astro-icon/components'
 ---
 <Layout title={title} og={og}>
-          <img src={eyecatch} class="m-4 mx-auto rounded-md w-10/12" width=700 height=366>        
-    <h1 class="title text-2xl font-bold text-main-text dark:text-dark-text">{title}</h1>
+          <img src={eyecatch} alt="" class="m-4 mx-auto rounded-md w-10/12" width=700 height=366>        
+    <h1 class="title text-4xl font-bold text-main-text dark:text-dark-text">{title}</h1>
     <div class="flex">
     <p class="publishedAt m-4 text-sub-text dark:text-dark-texti text-xl">{date}</p>
     <div class="ml-auto flex">
-	    <a href=`https://b.hatena.ne.jp/entry/s/${Astro.url}`>
-		    <Icon name="cib:hatena-bookmark" class=" text-xl" />
+	    <a href=`https://b.hatena.ne.jp/entry/s/${Astro.url}` class="ml-4">
+		    <Icon name="cib:hatena-bookmark" class=" text-4xl" />
 	    </a>
-	    <a href=`https://twitter.com/intent/tweet?url=${Astro.url}`>
-		    <Icon name="prime:twitter" class=" text-xl" />
+	    <a href=`https://twitter.com/intent/tweet?url=${Astro.url}` class="mx-4">
+		    <Icon name="prime:twitter" class="text-4xl" />
 	    </a>
     </div>
     </div>

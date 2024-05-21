@@ -35,10 +35,12 @@ const schema = JSON.stringify({
 	</head>
 	<body class="w-full dark:bg-dark-back">
 	<div class="w-full max-w-3xl mx-auto">
-		<header class="w-ful h-fit p-2 flex">
+		<header class="h-16 w-ful h-fit p-2 flex">
 			<Icon name="tabler:ear" class="text-4xl" />
 		<a href="/" class="mt-px text-4xl font-bold ml-0">耳日記</a>
-		<Search class="!ml-auto mr-0" />
+		<div class="ml-auto mr-0">
+		<Search />
+		</div>
 		</header>
 		<main class="dark:bg-dark-back dark:text-dark-text">
 		<slot />
