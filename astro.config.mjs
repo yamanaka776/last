@@ -7,8 +7,6 @@ import playformInline from "@playform/inline";
 import partytown from "@astrojs/partytown";
 import icon from "astro-icon";
 
-import react from "@astrojs/react";
-
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), robotsTxt({
@@ -17,7 +15,7 @@ export default defineConfig({
     config: {
       forward: ["dataLayer.push"]
     }
-  }), icon(), react()],
+  }), icon()],
   site: 'https://ear-diary.com',
   image: {
     remotePatters: [{
