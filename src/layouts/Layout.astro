@@ -6,6 +6,7 @@ const response = await getBlogs({ fields: ["id", "title","eyecatch","publishedAt
 response.contents.forEach((content:any) =>{
 content.publishedAt = new Date(content.publishedAt).toLocaleDateString('ja-JP');
 });
+import {Icon} from "astro-icon/components";
 const schema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -29,19 +30,10 @@ const schema = JSON.stringify({
     Meiryo,
     sans-serif;}
 </style>
-	<!-- Google tag (gtag.js) -->
-<script type="text/partytown" data-cfasync="false" src="https://www.googletagmanager.com/gtag/js?id=G-KYJSGZZGB0"></script>
-<script type="text/partytown" data-cfasync="false">
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-KYJSGZZGB0');
-</script>
 	</head>
 	<body class="w-full max-w-3xl mx-auto">
 		<header class="w-ful h-fit p-2 flex">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" width="35" height="35" color="#000" class="inline-block"><defs><style>.cls-637b8170f95e86b59c57a035-1{fill:none;stroke:currentColor;stroke-miterlimit:10}</style></defs><g id="ear"><path class="cls-637b8170f95e86b59c57a035-1" d="M5.32 8.18A6.68 6.68 0 0 1 12 1.5a6.68 6.68 0 0 1 6.68 6.68A16.16 16.16 0 0 1 14 19.59l-1.25 1.25a5.7 5.7 0 0 1-4 1.66 3.37 3.37 0 0 1-3.37-3.37 3.34 3.34 0 0 1 1-2.39"/><path class="cls-637b8170f95e86b59c57a035-1" d="M14.86 8.18A2.86 2.86 0 0 0 12 5.32a2.86 2.86 0 0 0-2.86 2.86v5.73a1.91 1.91 0 0 0 1.91 1.91A1.91 1.91 0 0 0 13 13.91 1.9 1.9 0 0 0 11.05 12H9.14"/></g></svg>
+			<Icon name="tabler:ear" class="text-4xl" />
 		<a href="/" class="mt-px text-4xl font-bold ml-0">耳日記</a>
 		<Search class="ml-auto mr-0" />
 		</header>
