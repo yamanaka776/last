@@ -5,15 +5,15 @@ import { Icon } from 'astro-icon/components'
 ---
 <Layout title={title}>
           <img src={eyecatch} class="m-4 mx-auto rounded-md w-10/12" width=700 height=366>        
-    <h1 class="title text-xl font-bold text-main-text dark:text-dark-text">{title}</h1>
+    <h1 class="title text-2xl font-bold text-main-text dark:text-dark-text">{title}</h1>
     <div class="flex">
-    <p class="publishedAt m-4 text-sub-text dark:text-dark-text">{date}</p>
+    <p class="publishedAt m-4 text-sub-text dark:text-dark-texti text-xl">{date}</p>
     <div class="ml-auto flex">
 	    <a href=`https://b.hatena.ne.jp/entry/s/${Astro.url}`>
-		    <Icon name="cib:hatena-bookmark" />
+		    <Icon name="cib:hatena-bookmark text-xl" />
 	    </a>
 	    <a href=`https://twitter.com/intent/tweet?url=${Astro.url}`>
-		    <Icon name="prime:twitter" />
+		    <Icon name="prime:twitteri text-xl" />
 	    </a>
     </div>
     </div>
