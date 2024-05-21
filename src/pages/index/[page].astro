@@ -11,7 +11,7 @@ return paginate(response.contents, { pageSize: 6 });
 }
 const { page } = Astro.props;
 ---
-<Layout title="index">
+<Layout title="index" og="https://ear-diary.com/ear.png">
 		<ul class="flex flex-wrap justify-around">
       {
         page.data.map((content: any) => (

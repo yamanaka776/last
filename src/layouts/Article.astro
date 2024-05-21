@@ -1,9 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const { date, title, eyecatch } = Astro.props;
+const {og,  date, title, eyecatch } = Astro.props;
 import { Icon } from 'astro-icon/components'
 ---
-<Layout title={title}>
+<Layout title={title} og={og}>
           <img src={eyecatch} class="m-4 mx-auto rounded-md w-10/12" width=700 height=366>        
     <h1 class="title text-2xl font-bold text-main-text dark:text-dark-text">{title}</h1>
     <div class="flex">

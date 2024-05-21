@@ -6,7 +6,7 @@ response.contents.forEach((content:any) =>{
 content.publishedAt = new Date(content.publishedAt).toLocaleDateString('ja-JP');
 });
 ---
-<Layout title="index">
+<Layout title="index" og="https://ear-diary.com/ear.png">
 	<div class="dark:bg-dark-back dark:text-dark-text w-full">
 	<div class="border-2 border-slate-400">
                 <ul class="justify-evenly flex flex-wrap">
