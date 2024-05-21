@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+const { date, title, eyecatch } = Astro.props;
+import { Icon } from 'astro-icon/components'
+---
+<Layout title={title}>
+          <img src={eyecatch} class="m-4 mx-auto rounded-md w-10/12" width=700 height=366>        
+    <h1 class="title text-xl font-bold text-main-text dark:text-dark-text">{title}</h1>
+    <div class="flex">
+    <p class="publishedAt m-4 text-sub-text dark:text-dark-text">公開日時：{date}</p>
+    <div class="ml-auto">
+	    <a href=`https://b.hatena.ne.jp/entry/s/${Astro.url}`>
+		    <Icon name="cib:hatena-bookmark" />
+	    </a>
+	    <a href=`https://twitter.com/intent/tweet?url=${Astro.url}`>
+		    <Icon name="prime:twitter" />
+	    </a>
+    </div>
+    </div>
+    <slot />
+</Layout>

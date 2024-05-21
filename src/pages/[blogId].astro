@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Article from "../layouts/Article.astro";
 import { getBlogs, getBlogDetail } from "../library/microcms";
 
 // 詳細記事ページの全パスを取得
@@ -17,11 +17,6 @@ const { blogId } = Astro.params;
 const blog = await getBlogDetail(blogId as string);
 blog.publishedAt = new Date(blog.publishedAt).toLocaleDateString('ja-JP');
 ---
-<Layout title={blog.title}>
-  <main data-pagefind-body>
-	  <img src=`${blog.eyecatch.url}?fm&fit=clamp&w=700&h=366` class="m-4 rounded-md w-10/12" width=700 height=366> 	
-    <h1 class="title // @ts-ignore">{blog.title}</h1>
-    <p class="publishedAt m-4">公開日時：{blog.publishedAt}</p>
-    <div class="post prose lg:prose-xl m-4" set:html={blog.content}></div>
-  </main>
+<Article title={blog.title} date={blog.publishedAt} eyecatch=`${blog.eyecatch.url}?fm&fit=clamp&w=700&h=366`>
+    <div class="post prose lg:prose-xl m-4 text-main-text dark:text-dark-text" set:html={blog.content}></div>
 </Layout>

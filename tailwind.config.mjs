@@ -4,4 +4,15 @@ export default {
   plugins: [
     require('@tailwindcss/typography'),
     // ...
-  ],}
+  ],
+	theme: {
+		colors: {
+			'main-text' : '#444444',
+			'sub-text' : '#777777' ,
+			'dark-back' : '##23282F',
+			'dark-text' : '#E6E6E6',
+		},
+	},
+
+
+}
