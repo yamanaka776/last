@@ -4,8 +4,8 @@ const {og,  date, title, eyecatch } = Astro.props;
 import { Icon } from 'astro-icon/components'
 ---
 <Layout title={title} og={og}>
-          <img src={eyecatch} alt="" class="m-4 mx-auto rounded-md w-10/12" width=700 height=366>        
-    <h1 class="title text-4xl font-bold text-main-text dark:text-dark-text">{title}</h1>
+          <img src={eyecatch} alt="" class="m-4 mx-auto rounded-md w-11/12" width=700 height=366>        
+    <h1 class="title text-4xl ml-3 font-bold text-main-text dark:text-dark-text">{title}</h1>
     <div class="flex">
     <p class="publishedAt m-4 text-sub-text dark:text-dark-texti text-xl">{date}</p>
     <div class="ml-auto flex">
