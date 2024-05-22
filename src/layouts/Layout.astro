@@ -24,6 +24,9 @@ const schema = JSON.stringify({
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="alternate" type="application/rss+xml"
+  title="RSS Feed for My Website"
+  href="/rss.xml" />
 		<script type="application/ld+json" set:html={schema} is:inline></script>
 		<title>{title}</title>
 		<style is:global>
@@ -58,7 +61,7 @@ const schema = JSON.stringify({
 	</div>
 
 
-<footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
+<footer class="bg-white rounded-lg shadow m-4 dark:bg-dark-back w-ful max-w-3xl">
     <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
       <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 All Rights Reserved.
     </span>
