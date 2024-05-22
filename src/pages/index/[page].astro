@@ -11,13 +11,13 @@ return paginate(response.contents, { pageSize: 6 });
 }
 const { page } = Astro.props;
 ---
-<Layout title="index" og="https://ear-diary.com/ear.png">
+<Layout meta="index page" title="index" og="https://ear-diary.com/ear.png">
 		<ul class="flex flex-wrap justify-evenly">
       {
         page.data.map((content: any) => (
 	<li class="border-slate-50 rounded border-2 w-11/12 lg:w-2/5 items-stretch m-4">
 		<a href=`https://ear-diary.com/${content.id}` class="block w-full h-full">
-		<img src=`${content.eyecatch.url}?fm&fit=clamp&w=350&h=183` class="rounded-md w-11/12 mx-auto" width=350 height=183px> 
+		<img src=`${content.eyecatch.url}?fm=webp&fit=clamp&w=350&h=183` class="rounded-md w-11/12 mx-auto" width=350 height=183px> 
 		<div class="text-sm text-slate-400">{content.publishedAt}</div>	  
             <div class="font-bold text-lg">{content.title}</div>
 		</a>

@@ -15,7 +15,8 @@ export async function getStaticPaths() {
 const { blogId } = Astro.params;
 const blog = await getBlogDetail(blogId as string);
 blog.publishedAt = new Date(blog.publishedAt).toLocaleDateString('ja-JP');
+const text:any = blog.content.replace(/(<([^>]+)>)/gi, '');
 ---
-<Article title={blog.title} date={blog.publishedAt} og=`${blog.eyecatch.url}?fm&fit=clamp&w=1200&h=630` eyecatch=`${blog.eyecatch.url}?fm&fit=clamp&w=700&h=366`>
+<Article title={blog.title} date={blog.publishedAt} meta={text.substr(0,100)} og=`${blog.eyecatch.url}?fm&fit=clamp&w=1200&h=630` eyecatch=`${blog.eyecatch.url}?fm&fit=clamp&w=700&h=366`>
     <div class="post prose lg:prose-xl dark:prose-invert m-4" set:html={blog.content}></div>
 </Layout>

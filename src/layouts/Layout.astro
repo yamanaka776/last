@@ -1,5 +1,5 @@
 ---
-const { title, og } = Astro.props
+const {meta, title, og } = Astro.props
 import { getBlogs } from "../library/microcms";
 import Search from '../components/Search.astro'
 const response = await getBlogs({ fields: ["id", "title","eyecatch","publishedAt"] });
@@ -11,14 +11,16 @@ const schema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": title ,
-    "url": Astro.url
+    "url": Astro.url,
+    "description":{meta}
 });
 ---
 <html lang="ja">
 	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
 		<meta charset="utf-8" />
-		<meta property="og:type" content="blog">
-		<meta property="og:image" content={og}>
+		<meta property="og:type" content="blog" />
+		<meta property="og:image" content={og} />
+		<meta name="description" content={meta} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
@@ -37,7 +39,7 @@ const schema = JSON.stringify({
 	<div class="w-full max-w-3xl mx-auto">
 		<header class="h-16 w-ful h-fit p-2 flex">
 			<Icon name="tabler:ear" class="text-4xl" />
-		<a href="/" class="mt-px text-4xl font-bold ml-0">耳日記</a>
+		<a href="/" class="mt-px dark:text-dark-text text-4xl font-bold ml-0">耳日記</a>
 		<div class="ml-auto mr-0">
 		<Search />
 		</div>
