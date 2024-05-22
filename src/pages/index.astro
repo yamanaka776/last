@@ -9,13 +9,13 @@ content.publishedAt = new Date(content.publishedAt).toLocaleDateString('ja-JP');
 <Layout title="index" og="https://ear-diary.com/ear.png">
 	<div class="dark:bg-dark-back dark:text-dark-text w-full">
 	<div class="border-2 border-slate-400">
-		<span class="text-lg w-fit mx-auto">最近の記事</span>
+		<span class="block text-lg font-bold text-center">最近の記事</span>
                 <ul class="justify-evenly flex flex-wrap">
       {
        response.contents.slice(0,4).map((content: any) => (
        <li class="rounded border-2 boader-slate-50 w-full lg:w-2/5 items-stretch m-4">
                 <a href={content.id} class="block w-full h-full">
-                <img src=`${content.eyecatch.url}?fm&fit=clamp&w=350&h=183` alt="thumb image" class="rounded-md w-11/12 mx-auto" width=350 height=183px> 
+                <img src=`${content.eyecatch.url}?fm&fit=clamp&w=350&h=183` alt="thumb image" class="rounded-md w-11/12 mt-0.5 mx-auto" width=350 height=183px> 
                 <div class="text-sm text-sub-text dark:text-dark-text">{content.publishedAt}</div>   
             <div class="text-main-text font-bold text-lg dark:text-dark-text">{content.title}</div>
                 </a>
