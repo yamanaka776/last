@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+const {frontmatter} = Astro.props;
+import { Icon } from 'astro-icon/components'
+const title = frontmatter.title;
+const og = frontmatter.og;
+const meta = frontmatter.meta;
+const eyecatch = frontmatter.eyacatch;
+const date = frontmatter.date;
+---
+<Layout title={title} og={og} meta={meta}>
+    <h1 class="title text-4xl ml-3 font-bold text-main-text dark:text-dark-text">{title}</h1>
+    <div class="flex">
+    <p class="publishedAt m-4 text-sub-text dark:text-dark-texti text-xl">{date}</p>
+    <div class="ml-auto flex">
+	    <a href=`https://b.hatena.ne.jp/entry/s/${Astro.url}` class="ml-4">
+		    <Icon name="cib:hatena-bookmark" class=" text-4xl" />
+	    </a>
+	    <a href=`https://twitter.com/intent/tweet?url=${Astro.url}` class="mx-4">
+		    <Icon name="prime:twitter" class="text-4xl" />
+	    </a>
+    </div>
+    </div>
+    <slot />
+</Layout>
