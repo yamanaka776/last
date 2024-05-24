@@ -2,8 +2,7 @@
 layout: ../../layouts/Article.astro
 title: ブログを始める
 pubDate: 2024-05-24
-tags:
-  - blog
+info: blog
 meta: ブログを始めました。
 slug: start
 ---

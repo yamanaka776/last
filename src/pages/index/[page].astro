@@ -13,7 +13,7 @@ const { page } = Astro.props;
                         <li class="my-2">
                                 <a href=`/blog/${post.slug}`>
                                 <div class="font-bold text-lg">{post.data.title}</div>
-                                {post.data.tags.map((tag:any) =>( <a href=`/tags/${tag}` class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{tag} </a>))}
+                               <a href=`/tags/${post.info}` class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{post.info} </a>
                                 <time datetime={post.data.pubDate.toISOString()} class="text-sub-text dark:text-dark-text text-right"> {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}</time>
                         </a>
                         </li>

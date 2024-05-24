@@ -2,9 +2,10 @@
 import { z, defineCollection } from "astro:content";
 // Define a schema for each collection you'd like to validate.
 const blogCollection = defineCollection({
+	type: 'content',
     schema: z.object({
       title: z.string(),
-      tags: z.array(z.string()),
+      info: z.string(),
       pubDate: z.date(),
       meta: z.string()
     })

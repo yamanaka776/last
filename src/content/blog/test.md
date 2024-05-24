@@ -2,8 +2,7 @@
 layout: ../../layouts/Article.astro
 title: test
 pubDate: 2024-05-24
-tags:
-  - test
+info: test
 meta: testお
 slug: test
 ---
