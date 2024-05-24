@@ -4,6 +4,7 @@ import { Icon } from 'astro-icon/components'
 const {frontmatter} = Astro.props;
 ---
 <Layout title={frontmatter.title} meta={frontmatter.meta}>
+	<article>
 	<h1 class="title text-4xl ml-3 font-bold text-main-text dark:text-dark-text">{frontmatter.title}</h1>
     <div class="flex">
 	    <p class="publishedAt m-4 text-sub-text dark:text-dark-texti text-xl">{new Intl.DateTimeFormat('ja-JP').format(frontmatter.pubDate)}</p>
@@ -17,6 +18,7 @@ const {frontmatter} = Astro.props;
     </div>
     </div>
     <slot />
+	</article>
     <div id="disqus_thread"></div>
 <script type="text/partytown" is:inline>
     /**

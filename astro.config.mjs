@@ -6,9 +6,17 @@ import playformCompress from "@playform/compress";
 import playformInline from "@playform/inline";
 import partytown from "@astrojs/partytown";
 import icon from "astro-icon";
+import customToc from "astro-custom-toc";
 
-import mdx from "@astrojs/mdx";
-
+const tocTemplate = (html) => {
+    return `
+<aside class="toc">
+    <h2>目次</h2>
+    <nav>
+        ${html}
+    </nav>
+</aside>`.trim();
+};
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), robotsTxt({
@@ -17,11 +25,15 @@ export default defineConfig({
     config: {
       forward: ["dataLayer.push"]
     }
-  }), icon(), mdx()],
+  }), icon(), customToc({template: tocTemplate})],
   site: 'https://ear-diary.com',
   image: {
     remotePatters: [{
       hostname: '**.microcms-assets.io'
     }]
+  },
+  prefetch: true,
+  prefetch: {
+    defaultStrategy: 'viewport'
   }
 });
