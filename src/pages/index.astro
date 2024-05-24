@@ -1,29 +1,27 @@
 ---
-import { getBlogs } from "../library/microcms";
 import Layout from "../layouts/Layout.astro";
-const response = await getBlogs({ fields: ["id", "title","eyecatch","publishedAt"] });
-response.contents.forEach((content:any) =>{
-content.publishedAt = new Date(content.publishedAt).toLocaleDateString('ja-JP');
-});
+import { getCollection } from 'astro:content';
+let posts = await getCollection('blog');
+if (posts.length > 10 ){
+posts = posts.slice(0,9);
+} 
 ---
 <Layout meta="index page" title="index" og="https://ear-diary.com/ear.png">
 	<div class="dark:bg-dark-back dark:text-dark-text w-full">
 	<div class="border-2 border-slate-400">
+		<ul>
+			{posts.map((post:any) =>(
+			<li class="my-2">
+				<a href=`/blog/${post.slug}`>
+				<div class="font-bold text-lg">{post.data.title}</div>
+				{post.data.tags.map((tag:any) =>( <a href=`/tags/${tag}` class="bg-red-100 text-red-800     text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{tag} </a>))}
+				<time datetime={post.data.pubDate.toISOString()} class="text-sub-text dark:text-dark-text text-right"> {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}</time>
+			</a>
+			</li>
+			))}
+		</ul>
 		<span class="block text-lg font-bold text-center">最近の記事</span>
-                <ul class="justify-evenly flex flex-wrap">
-      {
-       response.contents.slice(0,4).map((content: any) => (
-       <li class="rounded  shadow border boader-slate-50 w-full lg:w-2/5 items-stretch m-4">
-                <a href={content.id} class="block w-full h-full">
-                <img src=`${content.eyecatch.url}?fm=webp&fit=clamp&w=350&h=183` alt="thumb image" class="rounded-md w-11/12 mt-0.5 mx-auto" width=350 height=183px> 
-                <div class="text-sm text-sub-text dark:text-dark-text">{content.publishedAt}</div>   
-            <div class="text-main-text font-bold text-lg dark:text-dark-text">{content.title}</div>
-                </a>
-          </li>
-        ))
-      }
-                </ul>
-		<a href="index/1/" class="block flex justify-center items-center w-fit mx-auto">
+		<a href="index/2/" class="block flex justify-center items-center w-fit mx-auto">
 		<button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">記事一覧</button>
 		</a>
 		</div>

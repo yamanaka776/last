@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss';
-import { getBlogs } from "../library/microcms";
-const response = await getBlogs({ fields: ["id", "title","eyecatch","publishedAt"] });
-export function GET(context) {
+import { getCollection } from 'astro:content';
+export async  function GET(context) {
+const blogs = await getCollection('blog');
   return rss({
     // 出力されるXMLの`<title>`フィールド
     title: 'ear-diary',
@@ -12,10 +12,10 @@ export function GET(context) {
     site: context.site,
     // 出力されるXMLの<item>の
     // コンテンツコレクションやglobインポートを利用した例については「`items`の生成」セクションをご覧ください
-    items: response.contents.map((conten) => ({
-	title: conten.title,
-	pubDate: conten.publishedAt,
-	link: `/${conten.id}/`
+    items: blogs.map((conten) => ({
+	title: conten.data.title,
+	pubDate: conten.data.pubDate,
+	link: `blog/${conten.slug}/`
   })),
 	stylesheet: '/rss/styles.xsl',
 })}
