@@ -2,12 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import { Icon } from 'astro-icon/components'
 const {frontmatter} = Astro.props;
+const date = new Date(frontmatter.pubDate);
 ---
 <Layout title={frontmatter.title} meta={frontmatter.meta}>
 	<article>
 	<h1 class="title text-4xl ml-3 font-bold text-main-text dark:text-dark-text">{frontmatter.title}</h1>
     <div class="flex">
-	    <p class="publishedAt m-4 text-sub-text dark:text-dark-texti text-xl">{new Intl.DateTimeFormat('ja-JP').format(frontmatter.pubDate)}</p>
+	    <p class="publishedAt m-4 text-sub-text dark:text-dark-texti text-xl">{new Intl.DateTimeFormat('ja-JP').format(date)}</p>
     <div class="ml-auto flex">
 	    <a href=`https://b.hatena.ne.jp/entry/s/${Astro.url}` class="ml-4">
 		    <Icon name="cib:hatena-bookmark" class=" text-4xl" />
@@ -17,6 +18,7 @@ const {frontmatter} = Astro.props;
 	    </a>
     </div>
     </div>
+    <a href=`/tags/${frontmatter.info}` class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{frontmatter.info}</a> 
     <slot />
 	</article>
     <div id="disqus_thread"></div>
