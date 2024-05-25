@@ -23,7 +23,7 @@ const { posts } = Astro.props;
   		<ul>
 			{posts.map((post:any) =>(
 			<li class="m-2 w-[36rem] w-max-full">
-				<a href=`/blog/${post.slug}`>
+				<a href=`/posts/${post.slug}`>
 				<div class="font-bold text-lg">{post.data.title}</div>
 			  <a href=`/tags/${post.data.info}` class="bg-red-100 text-red-800 text-xs font-medium me      -2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{post.data.info} </a>
 				<time datetime={post.data.pubDate.toISOString()} class="text-sub-text dark:text-dark-text text-right"> {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}</time>

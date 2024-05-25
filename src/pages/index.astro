@@ -12,18 +12,17 @@ posts = posts.slice(0,9);
 		<ul>
 			{posts.map((post:any) =>(
 			<li class="m-2 w-[36rem] w-max-full">
-				<a href=`/blog/${post.slug}`>
+				<a href=`/posts/${post.slug}`>
 				<div class="font-bold text-lg">{post.data.title}</div>
 				<div class="flex flex-wrap">
 			  <a href=`/tags/${post.data.info}` class="block  bg-red-100 text-red-800 text-xs font-medium me      -2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{post.data.info} </a>
-				<time datetime={post.data.pubDate.toISOString()} class="text-sub-text dark:text-dark-text block w-fit ml-auto"> {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}</time>
+				<time datetime={post.data.pubDate.toISOString()} class="text-sub-text dark:text-dark-text block w-fit ml-1"> {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}</time>
 				</div>
 				</a>
 
 			</li>
 			))}
 		</ul>
-		<span class="block text-lg font-bold text-center">最近の記事</span>
 		<a href="index/2/" class="block flex justify-center items-center w-fit mx-auto">
 		<button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">記事一覧</button>
 		</a>
