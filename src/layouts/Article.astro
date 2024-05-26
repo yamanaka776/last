@@ -11,15 +11,21 @@ const date = new Date(frontmatter.pubDate);
 	    <p class="publishedAt m-4 text-sub-text dark:text-dark-texti text-xl">{new Intl.DateTimeFormat('ja-JP').format(date)}</p>
     <div class="ml-auto flex">
 	    <a href=`https://b.hatena.ne.jp/entry/s/${Astro.url}` class="ml-4">
-		    <Icon name="cib:hatena-bookmark" class=" text-4xl" />
+		    <Icon name="cib:hatena-bookmark" class="text-2xl lg:text-4xl" />
 	    </a>
 	    <a href=`https://twitter.com/intent/tweet?url=${Astro.url}` class="mx-4">
-		    <Icon name="prime:twitter" class="text-4xl" />
+		    <Icon name="prime:twitter" class="text-2xl lg:text-4xl" />
 	    </a>
+	    <a href="https://ear-diary.com/rss.xml">
+		    <Icon name="tabler:rss" class="lg:text-4xl text-2xl" />
+	    </a>
+
     </div>
     </div>
     <a href=`/tags/${frontmatter.info}` class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{frontmatter.info}</a> 
-    <slot />
+    <div class="prose dark:prose-dark w-full mx-2">
+	    <slot />
+    </div>
 	</article>
     <div id="disqus_thread"></div>
 <script type="text/partytown" is:inline>
