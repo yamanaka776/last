@@ -11,7 +11,7 @@ const date = new Date(frontmatter.date).toLocaleDateString('ja-Jp');
 <Layout title={title} og={og} meta={meta}>
     <h1 class="title text-4xl ml-3 font-bold text-main-text dark:text-dark-text">{title}</h1>
     <p class="publishedAt m-4 text-sub-text dark:text-dark-texti text-xl">{date}</p>
-    <div class="prose lg:prose-xl text-main-text dark:text-dark-text">
+    <div class="prose lg:prose-xl text-main-text dark:prose-invert dark:!text-dark-text">
 
 	    <slot />
     </div>
