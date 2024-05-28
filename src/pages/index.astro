@@ -13,7 +13,7 @@ posts = posts.slice(0,9);
 			{posts.map((post:any) =>(
 			<li class="m-2 w-max-full">
 				<a href=`/posts/${post.slug}`>
-				<div class="font-bold text-lg">{post.data.title}</div>
+				<div class="font-bold text-lg sm:test-xl">{post.data.title}</div>
 				<div class="flex flex-wrap w-full">
 			  <a href=`/tags/${post.data.info}` class="block  bg-red-100 text-red-800 text-xs font-medium me      -2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{post.data.info} </a>
 				<time datetime={post.data.pubDate.toISOString()} class="text-sub-text dark:text-dark-text block w-fit ml-1"> {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}</time>

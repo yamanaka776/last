@@ -7,7 +7,7 @@ import playformInline from "@playform/inline";
 import partytown from "@astrojs/partytown";
 import icon from "astro-icon";
 import customToc from "astro-custom-toc";
-
+import remarkLinkCard from 'remark-link-card';
 const tocTemplate = (html) => {
     return `
 <aside class="toc">
@@ -35,5 +35,16 @@ export default defineConfig({
   prefetch: true,
   prefetch: {
     defaultStrategy: 'viewport'
+  },
+	markdown: {
+    remarkPlugins: [
+      [
+        remarkLinkCard,
+        {
+          cache: true,
+          shortenUrl: true,
+        },
+      ],
+    ],
   }
 });

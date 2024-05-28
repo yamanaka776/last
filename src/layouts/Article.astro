@@ -6,7 +6,7 @@ const date = new Date(frontmatter.pubDate);
 ---
 <Layout title={frontmatter.title} meta={frontmatter.meta}>
 	<article>
-	<h1 class="title text-4xl ml-3 font-bold text-main-text dark:text-dark-text">{frontmatter.title}</h1>
+	<h1 class="w-fit mx-auto text-4xl ml-3 font-bold text-main-text dark:text-dark-text">{frontmatter.title}</h1>
     <div class="flex">
 	    <p class="publishedAt m-4 text-sub-text dark:text-dark-texti text-xl">{new Intl.DateTimeFormat('ja-JP').format(date)}</p>
     <div class="ml-auto flex">
