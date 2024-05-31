@@ -8,8 +8,9 @@ import partytown from "@astrojs/partytown";
 import icon from "astro-icon";
 import customToc from "astro-custom-toc";
 import remarkLinkCard from 'remark-link-card';
-const tocTemplate = (html) => {
-    return `
+import react from "@astrojs/react";
+const tocTemplate = html => {
+  return `
 <aside class="toc">
     <h2>目次</h2>
     <nav>
@@ -17,6 +18,7 @@ const tocTemplate = (html) => {
     </nav>
 </aside>`.trim();
 };
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), robotsTxt({
@@ -25,7 +27,9 @@ export default defineConfig({
     config: {
       forward: ["dataLayer.push"]
     }
-  }), icon(), customToc({template: tocTemplate})],
+  }), icon(), customToc({
+    template: tocTemplate
+  }), react()],
   site: 'https://ear-diary.com',
   image: {
     remotePatters: [{
@@ -36,15 +40,10 @@ export default defineConfig({
   prefetch: {
     defaultStrategy: 'viewport'
   },
-	markdown: {
-    remarkPlugins: [
-      [
-        remarkLinkCard,
-        {
-          cache: true,
-          shortenUrl: true,
-        },
-      ],
-    ],
+  markdown: {
+    remarkPlugins: [[remarkLinkCard, {
+      cache: true,
+      shortenUrl: true
+    }]]
   }
 });

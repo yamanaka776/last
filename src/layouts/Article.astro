@@ -1,12 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Icon } from 'astro-icon/components'
-const {frontmatter} = Astro.props;
-const date = new Date(frontmatter.pubDate);
+const {info, meta, og, title,date} =Astro.props;
 ---
-<Layout title={frontmatter.title} meta={frontmatter.meta}>
+<Layout og={og} title={title} meta={meta}>
 	<article>
-	<h1 class="w-fit mx-auto text-4xl ml-3 font-bold text-main-text dark:text-dark-text">{frontmatter.title}</h1>
+	<h1 class="text-center text-4xl ml-3 font-bold text-main-text dark:text-dark-text">{title}</h1>
     <div class="flex">
 	    <p class="publishedAt m-4 text-sub-text dark:text-dark-texti text-xl">{new Intl.DateTimeFormat('ja-JP').format(date)}</p>
     <div class="ml-auto flex">
@@ -22,7 +21,7 @@ const date = new Date(frontmatter.pubDate);
 
     </div>
     </div>
-    <a href=`/tags/${frontmatter.info}` class="m-2 bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{frontmatter.info}</a> 
+    <a href=`/tags/${info}` class="m-2 bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{info}</a> 
     <div class="mt-2 prose lg:prose-xl text-main-text dark:prose-invert dark:!text-dark-text w-full mx-2">
 	    <slot />
     </div>

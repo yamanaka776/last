@@ -1,5 +1,5 @@
 ---
-const {meta, title} = Astro.props
+const {og, meta, title} = Astro.props
 import Search from '../components/Search.astro'
 import {Icon} from "astro-icon/components";
 const schema = JSON.stringify({
@@ -14,6 +14,7 @@ const schema = JSON.stringify({
 	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
 		<meta charset="utf-8" />
 		<meta property="og:type" content="blog" />
+    <meta property=”og:image” content={og} />
 		<meta name="description" content={meta} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />

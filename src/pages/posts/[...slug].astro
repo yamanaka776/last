@@ -1,4 +1,5 @@
 ---
+import Article from '../../layouts/Article.astro'
 import { getCollection } from 'astro:content';
 // 1. コレクションエントリーごとに新しいパスを生成
 export async function getStaticPaths() {
@@ -11,4 +12,6 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
-<Content />
+<Article title={entry.data.title} meta={entry.data.meta} og=`https://ear-diary.com/og/${entry.slug}.png` info={entry.data.info} date={entry.data.pubDate}>
+  <Content />
+</Article>

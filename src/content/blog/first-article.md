@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/Article.astro
 title: ブログを始める
 pubDate: 2024-05-24
 info: blog

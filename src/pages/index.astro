@@ -11,11 +11,11 @@ posts = posts.slice(0,9);
 	<div class="border-2 border-slate-400">
 		<ul>
 			{posts.map((post:any) =>(
-			<li class="m-2 w-max-full">
+			<li class="m-2 w-max-full shadow-xl">
 				<a href=`/posts/${post.slug}`>
 				<div class="font-bold text-2xl sm:test-4xl">{post.data.title}</div>
 				<div class="flex flex-wrap w-full">
-			  <a href=`/tags/${post.data.info}` class="block  bg-red-100 text-red-800 text-xl sm:text-3xl font-medium me      -2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{post.data.info} </a>
+			  <a href=`/tags/${post.data.info}` class="block  bg-red-100 text-red-800 text-xl me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{post.data.info} </a>
 				<time datetime={post.data.pubDate.toISOString()} class="text-sub-text dark:text-dark-text block w-fit ml-1 text-xl sm:text-3xl"> {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}</time>
 				</div>
 				</a>
