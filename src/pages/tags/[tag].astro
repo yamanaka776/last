@@ -22,11 +22,11 @@ const { posts } = Astro.props;
   <p class="text-2xl text-main-text dark:text-dark-text">{tag}のタグが付いた記事</p>
   		<ul>
 			{posts.map((post:any) =>(
-			<li class="m-2 w-[36rem] w-max-full">
+			<li class="bg-[#383d43] m-2 w-[36rem] w-max-full">
 				<a href=`/posts/${post.slug}`>
 				<div class="text-main-text dark:text-dark-text font-bold text-2xl sm:text-4xl">{post.data.title}</div>
-			  <a href=`/tags/${post.data.info}` class="bg-red-100 text-red-800 text-xl sm:text-3xl font-medium me      -2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{post.data.info} </a>
-				<time datetime={post.data.pubDate.toISOString()} class="text-sub-text dark:text-dark-text text-right texl-xl sm:text-3xl"> {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}</time>
+			  <a href=`/tags/${post.data.info}` class="bg-red-100 text-red-800 font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{post.data.info} </a>
+				<time datetime={post.data.pubDate.toISOString()} class="text-sub-text dark:text-dark-text text-right"> {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}</time>
 			</a>
 			</li>
 			))}
