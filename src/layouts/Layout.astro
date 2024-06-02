@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 const {og, meta, title} = Astro.props
 import Search from '../components/Search.astro'
 import {Icon} from "astro-icon/components";
@@ -142,6 +143,7 @@ const schema = JSON.stringify({
 	    --pagefind-ui-scale: 0.75;
     }
 </style>
+  <ViewTransitions />
 	</head>
 	<body class="w-full dark:bg-dark-back">
 		<div class="w-full lg:max-w-4xl 2xl:max-w-6xl lg:w-10/12 max-w-full mx-auto">
