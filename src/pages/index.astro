@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Meigen from "../components/Meigen.astro";
 import { getCollection } from 'astro:content';
 let posts = await getCollection('blog');
 if (posts.length > 10 ){
@@ -9,7 +8,6 @@ posts = posts.slice(0,9);
 ---
 <Layout meta="index page" title="index" og="https://ear-diary.com/ear.png">
 	<div class="dark:bg-dark-back dark:text-dark-text w-full">
-    <Meigen client:load />
     <div class="border-2 rouded-lg border-slate-400">
 	<div class="border-2 rounded-lg border-slate-400">
 		<ul>
