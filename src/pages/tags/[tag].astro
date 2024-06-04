@@ -22,7 +22,7 @@ const { posts } = Astro.props;
   <p class="text-2xl text-main-text dark:text-dark-text">{tag}のタグが付いた記事</p>
   		<ul>
 			{posts.map((post:any) =>(
-      <li class="bg-[#ebebec] dark:bg-[#383d43] m-2 w-full shadow-xl w-max-full rounded-xl">
+      <li class="pl-1 bg-[#ebebec] dark:bg-[#383d43] m-2 w-full shadow-xl w-max-full rounded-xl">
         <a href=`/posts/${post.slug}` aria-label=`${post.slug}にアクセス`>
 				<div class="text-main-text dark:text-dark-text font-bold text-2xl sm:text-4xl">{post.data.title}</div>
 			  <a href=`/tags/${post.data.info}` class="bg-red-100 text-red-800 font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{post.data.info} </a>
