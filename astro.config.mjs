@@ -23,13 +23,13 @@ const tocTemplate = html => {
 export default defineConfig({
   integrations: [tailwind(), robotsTxt({
     sitemap: 'https://ear-diary.comsitemap-index.xml'
-  }), sitemap(), playformCompress(), playformInline(), partytown({
+  }), sitemap(), partytown({
     config: {
       forward: ["dataLayer.push"]
     }
   }), icon(), customToc({
     template: tocTemplate
-  }), react()],
+  }), react(),playformCompress(), playformInline()],
   site: 'https://ear-diary.com',
   image: {
     remotePatters: [{
