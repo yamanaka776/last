@@ -13,7 +13,14 @@ export default {
 			'dark-back' : '#23282F',
 			'dark-text' : '#E6E6E6',
 		},},
-	},
+        typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-links': '#0000ee',
+            '--tw-prose-invert-links': '#99CCFF'
+              },
+            },
+        },
+      },
+	}
 
-
-}
