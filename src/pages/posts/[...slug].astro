@@ -1,5 +1,5 @@
 ---
-import Article from '../../layouts/Article.astro'
+import Article from '../../layouts/Article.astro';
 import { getCollection } from 'astro:content';
 // 1. コレクションエントリーごとに新しいパスを生成
 export async function getStaticPaths() {
@@ -10,8 +10,19 @@ export async function getStaticPaths() {
 }
 // 2. テンプレートでは、プロパティからエントリーを直接取得できる
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, headings } = await entry.render();
 ---
 <Article title={entry.data.title} meta={entry.data.meta} og=`https://ear-diary.com/og/${entry.slug}.png` info={entry.data.info} date={entry.data.pubDate}>
+  <aside class="toc border-2 rounded-lg border-slate-400 p-2">
+    <h2 class="font-bold text-main-text dark:text-dark-text text-lg">目次</h2>
+    <ol class="list-decimal toc-level-0 dark:text-dark-text text-main-text">
+    {headings.filter(h => h.depth < 3).map((h,i) => {
+    return (
+        <li class={`toc-level-${h.depth} toc-item`}><a href={`#${h.slug}`}>{h.text}</a></li>
+        )})}
+    </ol>
+
+  </aside>
+  <slot/>
   <Content />
 </Article>

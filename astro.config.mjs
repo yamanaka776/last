@@ -6,19 +6,8 @@ import playformCompress from "@playform/compress";
 import playformInline from "@playform/inline";
 import partytown from "@astrojs/partytown";
 import icon from "astro-icon";
-import customToc from "astro-custom-toc";
 import remarkLinkCard from 'remark-link-card';
 import react from "@astrojs/react";
-const tocTemplate = html => {
-  return `
-<aside class="toc">
-    <h2>目次</h2>
-    <nav>
-        ${html}
-    </nav>
-</aside>`.trim();
-};
-
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), robotsTxt({
@@ -27,9 +16,7 @@ export default defineConfig({
     config: {
       forward: ["dataLayer.push"]
     }
-  }), icon(), customToc({
-    template: tocTemplate
-  }), react(),playformCompress(), playformInline()],
+  }), icon(),  react(),playformCompress(), playformInline()],
   site: 'https://ear-diary.com',
   image: {
     remotePatters: [{
