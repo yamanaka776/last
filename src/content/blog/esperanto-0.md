@@ -7,8 +7,7 @@ meta: エスペラントは、ユダヤ系の眼科医、***ラザロ・ルド�
 エスペラントは、ユダヤ系の眼科医、***ラザロ・ルドヴィコ・ザメンホフ***によって作られた人工言語だ。エスペラント語ともいわれるが、単にエスペラントというのが一般的。非常に平易な文法構造で知られ、容易に学習することができる。
 ## 背景
 ![当時のポーランドの地図](/images/poland-map.png)
-
-画像:Blank_map_of_Europe.svg: maix¿?derivative work: Alphathon /'æɫfə.θɒn/, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons
+Blank_map_of_Europe.svg: maix¿?derivative work: Alphathon /'æɫfə.θɒn/, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons
 
 ザメンホフは、1895年にポーランドで生まれた。当時のポーランドは帝政ロシアに支配されていた。町には、様々な違う言語を話す民族が暮らしていて、分断され、トラブルの原因となっていた。ザメンホフは、トラブルの主な原因は言語が異なる民族の間でのコミュニケーションに適した言語がないことにあると考えていた。彼の国際共通語への憧憬はこの時から始まった。
 
@@ -24,7 +23,7 @@ meta: エスペラントは、ユダヤ系の眼科医、***ラザロ・ルド�
 ## 現代のエスペラント
 現在、エスペラント話者は160万いるとされる。エスペラントにまつわる運動が最も盛んなのはヨーロッパであり、ブルガリアなどでは全国的に学校教育に取り入れられている[^2]。
 
-[^2]: [https://meiji.repo.nii.ac.jp/record/7554/files/kyouyoronshu_187_127.pdf](https://meiji.repo.nii.ac.jp/record/7554/files/kyouyoronshu_187_127.pdf)
+[^2]: [ヨーロッパにおけるエスペラント運動はこちらに詳しい](https://meiji.repo.nii.ac.jp/record/7554/files/kyouyoronshu_187_127.pdf)
 
 毎年エスペラント大会が行われている。
 
