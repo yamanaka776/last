@@ -31,6 +31,10 @@ export default defineConfig({
     remarkPlugins: [[remarkLinkCard, {
       cache: true,
       shortenUrl: true
-    }]]
+    }]],
+    remarkRehype: {
+      footnoteLabel: '脚注',
+      footnoteBackLabel: 'コンテンツに戻る',
+    },
   }
 });
