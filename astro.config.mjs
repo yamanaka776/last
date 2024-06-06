@@ -28,10 +28,6 @@ export default defineConfig({
     defaultStrategy: 'viewport'
   },
   markdown: {
-    remarkPlugins: [[remarkLinkCard, {
-      cache: true,
-      shortenUrl: true
-    }]],
     remarkRehype: {
       footnoteLabel: '脚注',
       footnoteBackLabel: 'コンテンツに戻る',
