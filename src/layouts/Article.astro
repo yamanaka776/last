@@ -22,10 +22,10 @@ const {info, meta, og, title,date} =Astro.props;
     </div>
     </div>
     <a href=`/tags/${info}` class="m-2 bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{info}</a> 
-    <div class="mt-2 prose lg:prose-xl text-main-text dark:prose-invert dark:!text-dark-text w-max-full mx-auto w-[38ch]">
+    <div class="mt-2 prose lg:prose-xl text-main-text dark:prose-invert dark:!text-dark-text w-full mx-2">
 	    <slot />
     </div>
-  </article>
+	</article>
     <div id="disqus_thread"></div>
 <script type="text/partytown" is:inline>
     /**
