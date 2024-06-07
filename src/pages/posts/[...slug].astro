@@ -12,6 +12,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
 ---
+ <Article title={entry.data.title} meta={entry.data.meta} og=`https://ear-diary.com/og/${entry.slug}.png` info={entry.data.info} date={entry.data.pubDate}>
   <div class="flex flex-col md:flex-row-reverse">
   <aside class="toc border-2 rounded-lg border-slate-400 p-1 h-fit w-full f-fit sticky">
     <h2 class="font-bold text-main-text dark:text-dark-text text-lg">目次</h2>
@@ -23,7 +24,7 @@ const { Content, headings } = await entry.render();
     </ol>
 
   </aside>
-  <Article title={entry.data.title} meta={entry.data.meta} og=`https://ear-diary.com/og/${entry.slug}.png` info={entr    y.data.info} date={entry.data.pubDate}>
   <Content />
-</Article>
+  <slot />
   </div>
+</Article>
