@@ -31,7 +31,7 @@ const uniqueTags = [...new Set(allPosts.map((post) => post.data.info).flat())];
 		</div>
   </div>
   <div class="flex flex-wrap">
-      {uniqueTags.sort.map((tag:any) => (
+      {uniqueTags.sort().map((tag:any) => (
       <div class="border-2 rounded-lg border-slate-400 my-2 w-full lg:w-1/2">
         <p class="text-main-text dark:text-dark-text text-lg text-center">{tag}の記事</p>
     <ul>

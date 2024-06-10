@@ -6,7 +6,6 @@ import playformCompress from "@playform/compress";
 import playformInline from "@playform/inline";
 import partytown from "@astrojs/partytown";
 import icon from "astro-icon";
-import remarkLinkCard from 'remark-link-card';
 import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
@@ -25,6 +24,7 @@ export default defineConfig({
   },
   prefetch: true,
   prefetch: {
+    prefetchAll: true,
     defaultStrategy: 'viewport'
   },
   markdown: {
