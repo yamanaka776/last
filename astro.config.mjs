@@ -7,6 +7,8 @@ import playformInline from "@playform/inline";
 import partytown from "@astrojs/partytown";
 import icon from "astro-icon";
 import react from "@astrojs/react";
+import itsmatteomanfsecurityTxt from "@itsmatteomanf/astro-security-txt";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), robotsTxt({
@@ -15,7 +17,10 @@ export default defineConfig({
     config: {
       forward: ["dataLayer.push"]
     }
-  }), icon(),  react(),playformCompress(), playformInline()],
+  }), icon(), react(),itsmatteomanfsecurityTxt({
+      contact:'mailto:contact@ear-diary.com',
+      preferredLanguages:['en','ja']
+    }),playformInline(),playformCompress()],
   site: 'https://ear-diary.com',
   image: {
     remotePatters: [{
@@ -30,7 +35,7 @@ export default defineConfig({
   markdown: {
     remarkRehype: {
       footnoteLabel: '脚注',
-      footnoteBackLabel: 'コンテンツに戻る',
-    },
+      footnoteBackLabel: 'コンテンツに戻る'
+    }
   }
 });
