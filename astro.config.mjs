@@ -17,10 +17,10 @@ export default defineConfig({
     config: {
       forward: ["dataLayer.push"]
     }
-  }), icon(), react(),itsmatteomanfsecurityTxt({
-      contact:'mailto:contact@ear-diary.com',
-      preferredLanguages:['en','ja']
-    }),playformInline(),playformCompress()],
+  }), icon(), react(), itsmatteomanfsecurityTxt({
+    contact: 'mailto:contact@ear-diary.com',
+    preferredLanguages: ['en', 'ja']
+  }), playformInline(), playformCompress()],
   site: 'https://ear-diary.com',
   image: {
     remotePatters: [{
