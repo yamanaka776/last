@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@astrojs/partytown':
-        specifier: ^2.1.0
+        specifier: ^2.1.1
         version: 2.1.1
       '@astrojs/react':
         specifier: ^3.5.0
-        version: 3.5.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0))
+        version: 3.5.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.3.1(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0))
       '@astrojs/rss':
         specifier: ^4.0.6
         version: 4.0.6
@@ -33,7 +33,7 @@ importers:
         specifier: ^1.1.12
         version: 1.1.12
       '@iconify-json/tabler':
-        specifier: ^1.1.112
+        specifier: ^1.1.113
         version: 1.1.113
       '@itsmatteomanf/astro-security-txt':
         specifier: ^0.3.3
@@ -57,10 +57,10 @@ importers:
         specifier: ^18.3.0
         version: 18.3.0
       astro:
-        specifier: ^4.10.1
+        specifier: ^4.10.2
         version: 4.10.2(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)(typescript@5.4.5)
       astro-custom-toc:
-        specifier: ^2.0.5
+        specifier: ^2.0.9
         version: 2.0.9(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)
       astro-google-fonts-optimizer:
         specifier: ^0.2.2
@@ -72,7 +72,7 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       cheerio:
-        specifier: ^1.0.0-rc.12
+        specifier: 1.0.0-rc.12
         version: 1.0.0-rc.12
       pagefind:
         specifier: ^1.1.0
@@ -93,7 +93,7 @@ importers:
         specifier: ^0.33.4
         version: 0.33.4
       tailwindcss:
-        specifier: ^3.4.3
+        specifier: ^3.4.4
         version: 3.4.4
     devDependencies:
       '@tailwindcss/typography':
@@ -970,8 +970,8 @@ packages:
   accessible-astro-components@2.3.6:
     resolution: {integrity: sha512-o8bza9yxXcfz38qKUT52iJRV3Rq44Lw90WTmeMk4oCOHAnRHAZNpeWp2TuZz+cRiL8lPJI1Nc5eloWJB26SS1w==}
 
-  acorn@8.11.3:
-    resolution: {integrity: sha512-Y9rRfJG5jcKOE0CLisYbojUjIrIEE7AGMzA/Sm4BslANhbS+cDMpgBdcPT91oJ7OuJ9hYJBx59RjbhxVnrF8Xg==}
+  acorn@8.12.0:
+    resolution: {integrity: sha512-RTvkC4w+KNXrM39/lWCUaG0IbRkWdCv7W/IOW9oU6SawyxulvkQy5HQPVTKxEjczcUvapcrw3cFx/60VN/NRNw==}
     engines: {node: '>=0.4.0'}
     hasBin: true
 
@@ -1108,8 +1108,8 @@ packages:
   camelize@1.0.1:
     resolution: {integrity: sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==}
 
-  caniuse-lite@1.0.30001633:
-    resolution: {integrity: sha512-6sT0yf/z5jqf8tISAgpJDrmwOpLsrpnyCdD/lOZKvKkkJK4Dn0X5i7KF7THEZhOq+30bmhwBlNEaqPUiHiKtZg==}
+  caniuse-lite@1.0.30001634:
+    resolution: {integrity: sha512-fbBYXQ9q3+yp1q1gBk86tOFs4pyn/yxFm5ZNP18OXJDfA3txImOY9PhfxVggZ4vRHDqoU8NrKU81eN0OtzOgRA==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -2682,8 +2682,8 @@ packages:
   vfile@6.0.1:
     resolution: {integrity: sha512-1bYqc7pt6NIADBJ98UiG0Bn/CHIVOoZ/IyEkqIruLg0mE1BKzkOXY2D6CSqQIcKqgadppE5lrxgWXJmXd7zZJw==}
 
-  vite@5.3.0:
-    resolution: {integrity: sha512-hA6vAVK977NyW1Qw+fLvqSo7xDPej7von7C3DwwqPRmnnnK36XEBC/J3j1V5lP8fbt7y0TgTKJbpNGSwM+Bdeg==}
+  vite@5.3.1:
+    resolution: {integrity: sha512-XBmSKRLXLxiaPYamLv3/hnP/KXDai1NDexN0FpkTaZXTfycHvkRHoenpgl/fvuK/kPbB6xAgoyiryAhQNxYmAQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -2845,11 +2845,11 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/react@3.5.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0))':
+  '@astrojs/react@3.5.0(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.3.1(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0))':
     dependencies:
       '@types/react': 18.3.3
       '@types/react-dom': 18.3.0
-      '@vitejs/plugin-react': 4.3.1(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0))
+      '@vitejs/plugin-react': 4.3.1(vite@5.3.1(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0))
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       ultrahtml: 1.5.3
@@ -3615,20 +3615,20 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react@4.3.1(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0))':
+  '@vitejs/plugin-react@4.3.1(vite@5.3.1(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0))':
     dependencies:
       '@babel/core': 7.24.7
       '@babel/plugin-transform-react-jsx-self': 7.24.7(@babel/core@7.24.7)
       '@babel/plugin-transform-react-jsx-source': 7.24.7(@babel/core@7.24.7)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 5.3.0(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)
+      vite: 5.3.1(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)
     transitivePeerDependencies:
       - supports-color
 
   accessible-astro-components@2.3.6: {}
 
-  acorn@8.11.3: {}
+  acorn@8.12.0: {}
 
   ansi-align@3.0.1:
     dependencies:
@@ -3720,7 +3720,7 @@ snapshots:
       '@babel/types': 7.24.7
       '@types/babel__core': 7.20.5
       '@types/cookie': 0.6.0
-      acorn: 8.11.3
+      acorn: 8.12.0
       aria-query: 5.3.0
       axobject-query: 4.0.0
       boxen: 7.1.1
@@ -3765,8 +3765,8 @@ snapshots:
       tsconfck: 3.1.0(typescript@5.4.5)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.3.0(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)
-      vitefu: 0.2.5(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0))
+      vite: 5.3.1(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)
+      vitefu: 0.2.5(vite@5.3.1(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0))
       which-pm: 2.2.0
       yargs-parser: 21.1.1
       zod: 3.23.8
@@ -3798,7 +3798,7 @@ snapshots:
       '@babel/types': 7.24.7
       '@types/babel__core': 7.20.5
       '@types/cookie': 0.6.0
-      acorn: 8.11.3
+      acorn: 8.12.0
       aria-query: 5.3.0
       axobject-query: 4.0.0
       boxen: 7.1.1
@@ -3843,8 +3843,8 @@ snapshots:
       tsconfck: 3.1.0(typescript@5.4.5)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.3.0(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)
-      vitefu: 0.2.5(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0))
+      vite: 5.3.1(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)
+      vitefu: 0.2.5(vite@5.3.1(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0))
       which-pm: 2.2.0
       yargs-parser: 21.1.1
       zod: 3.23.8
@@ -3865,7 +3865,7 @@ snapshots:
   autoprefixer@10.4.19(postcss@8.4.38):
     dependencies:
       browserslist: 4.23.1
-      caniuse-lite: 1.0.30001633
+      caniuse-lite: 1.0.30001634
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.1
@@ -3909,7 +3909,7 @@ snapshots:
 
   browserslist@4.23.1:
     dependencies:
-      caniuse-lite: 1.0.30001633
+      caniuse-lite: 1.0.30001634
       electron-to-chromium: 1.4.802
       node-releases: 2.0.14
       update-browserslist-db: 1.0.16(browserslist@4.23.1)
@@ -3929,7 +3929,7 @@ snapshots:
 
   camelize@1.0.1: {}
 
-  caniuse-lite@1.0.30001633: {}
+  caniuse-lite@1.0.30001634: {}
 
   ccount@2.0.1: {}
 
@@ -5041,7 +5041,7 @@ snapshots:
 
   mlly@1.7.1:
     dependencies:
-      acorn: 8.11.3
+      acorn: 8.12.0
       pathe: 1.1.2
       pkg-types: 1.1.1
       ufo: 1.5.3
@@ -5696,7 +5696,7 @@ snapshots:
   terser@5.31.0:
     dependencies:
       '@jridgewell/source-map': 0.3.6
-      acorn: 8.11.3
+      acorn: 8.12.0
       commander: 2.20.3
       source-map-support: 0.5.21
 
@@ -5866,7 +5866,7 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite@5.3.0(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0):
+  vite@5.3.1(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.38
@@ -5877,9 +5877,9 @@ snapshots:
       lightningcss: 1.24.1
       terser: 5.31.0
 
-  vitefu@0.2.5(vite@5.3.0(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)):
+  vitefu@0.2.5(vite@5.3.1(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)):
     optionalDependencies:
-      vite: 5.3.0(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)
+      vite: 5.3.1(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)
 
   web-namespaces@2.0.1: {}
 
