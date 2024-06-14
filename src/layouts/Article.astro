@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import { Icon } from 'astro-icon/components'
 const {info, meta, og, title,date} =Astro.props;
-const paurl = Astro.url;
 ---
 <Layout og={og} title={title} meta={meta}>
 	<article>
@@ -19,7 +18,7 @@ const paurl = Astro.url;
 	    <a href="https://ear-diary.com/rss.xml">
 		    <Icon name="tabler:rss" class="lg:text-4xl text-2xl text-blue-400 dark:text-slate-200" />
 	    </a>
-				<a href="#" onclick=`writeText(${paurl});`>
+				<a href="#" onclick=`writeText(${Astro.url});`>
 			<Icon name="ph:copy" class="lg:text-4xl text2xl test-blue-400 dark:text-slate-200" />
 				</a>
 
