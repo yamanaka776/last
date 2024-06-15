@@ -2,33 +2,49 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, getEntry } from 'astro:content';
 export async function getStaticPaths() {
-  const allPosts = await getCollection('blog');
+    const allPosts = await getCollection('blog');
 
-  const uniqueTags = [...new Set(allPosts.map((post) => post.data.info).flat())];
+    const uniqueTags = [...new Set(allPosts.map((post) => post.data.info).flat())];
 
-  return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) => post.data.info.includes(tag));
-    return {
-      params: { tag },
-      props: { posts: filteredPosts },
-    };
-  });
+    return uniqueTags.map((tag) => {
+        const filteredPosts = allPosts.filter((post) => post.data.info.includes(tag));
+        return {
+            params: { tag },
+            props: { posts: filteredPosts },
+        };
+    });
 }
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
+
 <Layout Title={tag}>
-  <p class="text-2xl text-main-text dark:text-dark-text">{tag}のタグが付いた記事</p>
-  		<ul>
-			{posts.map((post:any) =>(
-      <li class="pl-1 bg-[#f3f3f3] dark:bg-[#383d43] m-2 w-full shadow-xl w-max-full rounded-xl">
-        <a href=`/posts/${post.slug}` aria-label=`${post.slug}にアクセス`>
-				<div class="text-main-text dark:text-dark-text font-bold text-2xl sm:text-4xl">{post.data.title}</div>
-			  <a href=`/tags/${post.data.info}` class="bg-red-100 text-red-800 font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{post.data.info} </a>
-				<time datetime={post.data.pubDate.toISOString()} class="text-sub-text dark:text-dark-text text-right"> {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}</time>
-			</a>
-			</li>
-			))}
-		</ul>
+    <p class="text-2xl text-main-text dark:text-dark-text">{tag}のタグが付いた記事</p>
+    <ul>
+        {
+            posts.map((post: any) => (
+                <li class="w-max-full m-2 w-full rounded-xl bg-[#f3f3f3] pl-1 shadow-xl dark:bg-[#383d43]">
+                    <a href={`/posts/${post.slug}`} aria-label={`${post.slug}にアクセス`}>
+                        <div class="text-2xl font-bold text-main-text dark:text-dark-text sm:text-4xl">
+                            {post.data.title}
+                        </div>
+                        <a
+                            href={`/tags/${post.data.info}`}
+                            class="me-2 rounded-full bg-red-100 px-2.5 py-0.5 font-medium text-red-800 dark:bg-red-900 dark:text-red-300"
+                        >
+                            {post.data.info}{' '}
+                        </a>
+                        <time
+                            datetime={post.data.pubDate.toISOString()}
+                            class="text-right text-sub-text dark:text-dark-text"
+                        >
+                            {' '}
+                            {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}
+                        </time>
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
 </Layout>

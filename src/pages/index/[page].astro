@@ -1,53 +1,136 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from "../../layouts/Layout.astro";
+import Layout from '../../layouts/Layout.astro';
 export async function getStaticPaths({ paginate }) {
-const posts = await getCollection('blog');
-return paginate(posts, {pageSize:10});
-};
+    const posts = await getCollection('blog');
+    return paginate(posts, { pageSize: 10 });
+}
 const { page } = Astro.props;
 ---
-<Layout meta="index page" title="index">
-	<ul>
-                        {page.data.map((post:any) =>(
-                     <li class="pl-1 bg-[#f3f3f3] dark:bg-[#383d43] m-2 w-full rouded-xl shadow-lg">
-                       <a href=`/posts/${post.slug}` aria-label=`${post.slug}にアクセス`>
-				<div class="text-main-text dark:text-dark-text font-bold text-2xl sm:text-4xl">{post.data.title}</div>
-			  <a href=`/tags/${post.data.info}` class="bg-red-100 text-red-800 font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{post.data.info} </a>
-				<time datetime={post.data.pubDate.toISOString()} class="text-sub-text dark:text-dark-text text-right"> {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}</time>
-			</a>
-			</li>
-                        ))}
-                </ul>
-		<div class="w-fit flex mx-auto justify-center">
-  <!-- Previous Button -->
-  {page.url.prev ?
-  <a href={page.url.prev} class="flex items-center justify-center px-3 h-8 me-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-    <svg class="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
-    </svg>
-    Previous
-  </a> :<a href="/" class="flex opacity-0 items-center justify-center px-3 h-8 me-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-    <svg class="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
-    </svg>
-    Previous </a>}
-  <span class="font-bold m-2 text-main-text dark:text-dark-text"> {page.currentPage}</span>
-  {page.url.next ?
-  <a href={page.url.next} class="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-    Next
-    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-    </svg>
-  </a>
-  :
 
-  <a href="/" class="flex opacity-0 items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-    Next
-    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-    </svg>
-  </a>
-  }
-</div>
+<Layout meta="index page" title="index">
+    <ul>
+        {
+            page.data.map((post: any) => (
+                <li class="rouded-xl m-2 w-full bg-[#f3f3f3] pl-1 shadow-lg dark:bg-[#383d43]">
+                    <a href={`/posts/${post.slug}`} aria-label={`${post.slug}にアクセス`}>
+                        <div class="text-2xl font-bold text-main-text dark:text-dark-text sm:text-4xl">
+                            {post.data.title}
+                        </div>
+                        <a
+                            href={`/tags/${post.data.info}`}
+                            class="me-2 rounded-full bg-red-100 px-2.5 py-0.5 font-medium text-red-800 dark:bg-red-900 dark:text-red-300"
+                        >
+                            {post.data.info}{' '}
+                        </a>
+                        <time
+                            datetime={post.data.pubDate.toISOString()}
+                            class="text-right text-sub-text dark:text-dark-text"
+                        >
+                            {' '}
+                            {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}
+                        </time>
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+    <div class="mx-auto flex w-fit justify-center">
+        <!-- Previous Button -->
+        {
+            page.url.prev ? (
+                <a
+                    href={page.url.prev}
+                    class="me-3 flex h-8 items-center justify-center rounded-lg border border-gray-300 bg-white px-3 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                    <svg
+                        class="me-2 h-3.5 w-3.5 rtl:rotate-180"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 10"
+                    >
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M13 5H1m0 0 4 4M1 5l4-4"
+                        />
+                    </svg>
+                    Previous
+                </a>
+            ) : (
+                <a
+                    href="/"
+                    class="me-3 flex h-8 items-center justify-center rounded-lg border border-gray-300 bg-white px-3 text-sm font-medium text-gray-500 opacity-0 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                    <svg
+                        class="me-2 h-3.5 w-3.5 rtl:rotate-180"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 10"
+                    >
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M13 5H1m0 0 4 4M1 5l4-4"
+                        />
+                    </svg>
+                    Previous{' '}
+                </a>
+            )
+        }
+        <span class="m-2 font-bold text-main-text dark:text-dark-text"> {page.currentPage}</span>
+        {
+            page.url.next ? (
+                <a
+                    href={page.url.next}
+                    class="flex h-8 items-center justify-center rounded-lg border border-gray-300 bg-white px-3 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                    Next
+                    <svg
+                        class="ms-2 h-3.5 w-3.5 rtl:rotate-180"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 10"
+                    >
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M1 5h12m0 0L9 1m4 4L9 9"
+                        />
+                    </svg>
+                </a>
+            ) : (
+                <a
+                    href="/"
+                    class="flex h-8 items-center justify-center rounded-lg border border-gray-300 bg-white px-3 text-sm font-medium text-gray-500 opacity-0 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                    Next
+                    <svg
+                        class="ms-2 h-3.5 w-3.5 rtl:rotate-180"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 10"
+                    >
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M1 5h12m0 0L9 1m4 4L9 9"
+                        />
+                    </svg>
+                </a>
+            )
+        }
+    </div>
 </Layout>

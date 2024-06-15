@@ -3,44 +3,76 @@ import Article from '../../layouts/Article.astro';
 import { getCollection } from 'astro:content';
 // 1. コレクションエントリーごとに新しいパスを生成
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
-  }));
+    const blogEntries = await getCollection('blog');
+    return blogEntries.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
 }
 // 2. テンプレートでは、プロパティからエントリーを直接取得できる
 const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
 const allPosts = await getCollection('blog');
 ---
-<Article title={entry.data.title} meta={entry.data.meta} og=`https://ear-diary.com/og/${entry.slug}.png` info={entry.data.info} date={entry.data.pubDate}>
-  <aside class="toc border-2 rounded-lg border-slate-400 p-1 h-fit w-fit">
-    <h2 class="font-bold text-main-text dark:text-dark-text text-lg">目次</h2>
-    <ol class="list-decimal toc-level-0 dark:text-dark-text text-main-text">
-    {headings.filter(h => h.depth < 3).map((h,i) => {
-    return (
-        <li class={`toc-level-${h.depth} toc-item`}><a href={`#${h.slug}`}>{h.text}</a></li>
-        )})}
-    </ol>
 
-  </aside>
-  <Content />
-      <div class="border-2 rounded-lg border-slate-400 my-2 w-full">
-    <p class="text-main-text dark:text-dark-text text-lg text-center">関連記事</p>
-  <ul>    
-      {allPosts.filter( post => post.data.info.includes(entry.data.info)).filter( penis => penis.data.info != entry.data.info).slice(0,2).map((post:any) =>(
-        <li class="pl-1 dark:bg-[#383d43] bg-[#f3f3f3] m-2 w-max-full shadow-xl rounded-lg">    
-          <a href=`/posts/${post.slug}` aria-label=`${post.slug}にアクセス`>    
-          <div class="font-bold text-2xl sm:test-4xl">{post.data.title}</div>    
-          <div class="flex flex-wrap w-full">    
-          <a href=`/tags/${post.data.info}` class="block  bg-red-100 text-red-800 me-2 px-2.5 py-0.5 rounded-full dark:          bg-red-900 dark:text-red-300">{post.data.info} </a>
-          <time datetime={post.data.pubDate.toISOString()} class="text-sub-text dark:text-dark-text block w-fit ml-1">           {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}</time>
-          </div>    
-          </a>    
-      
-        </li>    
-        ))    
-        }    
-      </ul>    
-  </div>
+<Article
+    title={entry.data.title}
+    meta={entry.data.meta}
+    og=`https://ear-diary.com/og/${entry.slug}.png`
+    info={entry.data.info}
+    date={entry.data.pubDate}
+>
+    <aside class="toc h-fit w-fit rounded-lg border-2 border-slate-400 p-1">
+        <h2 class="text-lg font-bold text-main-text dark:text-dark-text">目次</h2>
+        <ol class="toc-level-0 list-decimal text-main-text dark:text-dark-text">
+            {
+                headings
+                    .filter((h) => h.depth < 3)
+                    .map((h, i) => {
+                        return (
+                            <li class={`toc-level-${h.depth} toc-item`}>
+                                <a href={`#${h.slug}`}>{h.text}</a>
+                            </li>
+                        );
+                    })
+            }
+        </ol>
+    </aside>
+    <Content />
+    <div class="my-2 w-full rounded-lg border-2 border-slate-400">
+        <p class="text-center text-lg text-main-text dark:text-dark-text">関連記事</p>
+        <ul>
+            {
+                allPosts
+                    .filter((post) => post.data.info.includes(entry.data.info))
+                    .filter((penis) => penis.data.info != entry.data.info)
+                    .slice(0, 2)
+                    .map((post: any) => (
+                        <li class="w-max-full m-2 rounded-lg bg-[#f3f3f3] pl-1 shadow-xl dark:bg-[#383d43]">
+                            <a
+                                href={`/posts/${post.slug}`}
+                                aria-label={`${post.slug}にアクセス`}
+                            >
+                                <div class="sm:test-4xl text-2xl font-bold">{post.data.title}</div>
+                                <div class="flex w-full flex-wrap">
+                                    <a
+                                        href={`/tags/${post.data.info}`}
+                                        class="dark: me-2 block rounded-full bg-red-100 bg-red-900 px-2.5 py-0.5 text-red-800 dark:text-red-300"
+                                    >
+                                        {post.data.info}{' '}
+                                    </a>
+                                    <time
+                                        datetime={post.data.pubDate.toISOString()}
+                                        class="ml-1 block w-fit text-sub-text dark:text-dark-text"
+                                    >
+                                        {' '}
+                                        {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}
+                                    </time>
+                                </div>
+                            </a>
+                        </li>
+                    ))
+            }
+        </ul>
+    </div>
 </Article>

@@ -1,148 +1,320 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
-const {og, meta, title} = Astro.props
-import Search from '../components/Search.astro'
-import {Icon} from "astro-icon/components";
+const { og, meta, title } = Astro.props;
+import Search from '../components/Search.astro';
+import { Icon } from 'astro-icon/components';
 const schema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": title ,
-    "url": Astro.url,
-    "description":meta
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: title,
+    url: Astro.url,
+    description: meta,
 });
 ---
+
 <html lang="ja">
-	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
-		<meta charset="utf-8" />
-	<script is:inline>                                                                                                 
-      // On page load or when changing themes, best to add inline in `head` to avoid FOUC    
-      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');    
-      } else {    
-          document.documentElement.classList.remove('dark')    
-      }    
-  </script>
-		<meta property="og:type" content="blog" />
-    <meta property="og:image" content={og} />
-		<meta name="description" content={meta} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="alternate" type="application/rss+xml"
-  title="RSS Feed for My Website"
-  href="/rss.xml" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" href="/favicon.png">
-		<script type="application/ld+json" set:html={schema} is:inline></script>
-		<title>{title}</title>
-		<style is:global>
-         body {font-family: "Helvetica Neue",
-    Arial,
-    "Hiragino Kaku Gothic ProN",
-    "Hiragino Sans",
-    "BIZ UDPGothic",
-    Meiryo,
-    sans-serif;}
- body.dark {
-  --pagefind-ui-primary: #eeeeee;
-  --pagefind-ui-text: #eeeeee;
-  --pagefind-ui-background: #152028;
-  --pagefind-ui-border: #152028;
-  --pagefind-ui-tag: #152028;
-  }
-    :root {
-	    --pagefind-ui-scale: 0.75;
-    }
-</style>
-	</head>
-	<body class="w-full dark:bg-dark-back">
-		<div class="w-full lg:max-w-4xl 2xl:max-w-6xl lg:w-10/12 max-w-full mx-auto">
-		<header class="h-16  shadow w-ful h-fit p-2 flex">
-			<Icon name="tabler:ear" class="text-xl md:text-4xl dark:text-dark-text" />
-		<a href="/" class="mt-px dark:text-dark-text md:text-4xl text-xl font-bold ml-0">耳日記</a>
-		<div class="ml-auto mr-0 flex">
-		<Search />
-    <button aria-label="ダークモード切り替え" id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
-    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-</button>
-		</div>
-		</header>
-		<main class="dark:bg-dark-back">
-		<slot />
-		</main>
-	</div>
-
-
-	<footer class="bg-white rounded-lg m-4 dark:bg-dark-back w-full lg:max-w-4xl 2xl:max-w-6xl lg:w-10/12 max-w-full mx-auto">
-    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 All Rights Reserved.
-    </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-        <li>
-		<a href="/about" class="hover:underline me-4 md:me-6 m-6">About</a>
-        </li>
-        <li>
-		<a href="/privacy" class="hover:underline me-4 md:me-6">プライバシーポリシー</a>
-        </li>
-    </ul>
-    </div>
-  </footer>
-	<div class="elevator fixed right-5 bottom-5 w-10 h-10 md:w-12 md:h-12 text-black dark:text-white">
-                    <svg class="sweet-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-                        <path fill="currentColor" stroke="currentColor" d="M70,47.5H30c-1.4,0-2.5,1.1-2.5,2.5v40c0,1.4,1.1,2.5,2.5,2.5h40c1.4,0,2.5-1.1,2.5-2.5V50C72.5,48.6,71.4,47.5,70,47.5z   M47.5,87.5h-5v-25h5V87.5z M57.5,87.5h-5v-25h5V87.5z M67.5,87.5h-5V60c0-1.4-1.1-2.5-2.5-2.5H40c-1.4,0-2.5,1.1-2.5,2.5v27.5h-5  v-35h35V87.5z"/>
-                        <path fill="currentColor" stroke="currentColor" d="M50,42.5c1.4,0,2.5-1.1,2.5-2.5V16l5.7,5.7c0.5,0.5,1.1,0.7,1.8,0.7s1.3-0.2,1.8-0.7c1-1,1-2.6,0-3.5l-10-10  c-1-1-2.6-1-3.5,0l-10,10c-1,1-1,2.6,0,3.5c1,1,2.6,1,3.5,0l5.7-5.7v24C47.5,41.4,48.6,42.5,50,42.5z"/>
-                    </svg>
+    <head
+        prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"
+    >
+        <meta charset="utf-8" />
+        <script is:inline>
+            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+            if (
+                localStorage.getItem('color-theme') === 'dark' ||
+                (!('color-theme' in localStorage) &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
+        <meta property="og:type" content="blog" />
+        <meta property="og:image" content={og} />
+        <meta name="description" content={meta} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS Feed for My Website"
+            href="/rss.xml"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <script type="application/ld+json" set:html={schema} is:inline />
+        <title>{title}</title>
+        <style is:global>
+            body {
+                font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
+                    'BIZ UDPGothic', Meiryo, sans-serif;
+            }
+            body.dark {
+                --pagefind-ui-primary: #eeeeee;
+                --pagefind-ui-text: #eeeeee;
+                --pagefind-ui-background: #152028;
+                --pagefind-ui-border: #152028;
+                --pagefind-ui-tag: #152028;
+            }
+            :root {
+                --pagefind-ui-scale: 0.75;
+            }
+        </style>
+    </head>
+    <body class="w-full dark:bg-dark-back">
+        <div class="mx-auto w-full max-w-full lg:w-10/12 lg:max-w-4xl 2xl:max-w-6xl">
+            <header class="w-ful flex h-16 h-fit p-2 shadow">
+                <Icon name="tabler:ear" class="text-xl dark:text-dark-text md:text-4xl" />
+                <a href="/" class="ml-0 mt-px text-xl font-bold dark:text-dark-text md:text-4xl"
+                    >耳日記</a
+                >
+                <div class="ml-auto mr-0 flex">
+                    <Search />
+                    <button
+                        aria-label="ダークモード切り替え"
+                        id="theme-toggle"
+                        type="button"
+                        class="rounded-lg p-2.5 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                    >
+                        <svg
+                            id="theme-toggle-dark-icon"
+                            class="hidden h-5 w-5"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                            ><path
+                                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                            ></path></svg
+                        >
+                        <svg
+                            id="theme-toggle-light-icon"
+                            class="hidden h-5 w-5"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                            ><path
+                                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"></path></svg
+                        >
+                    </button>
                 </div>
-<script is:inline>
-var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+            </header>
+            <main class="dark:bg-dark-back">
+                <slot />
+            </main>
+        </div>
 
-// Change the icons inside the button based on previous settings
-if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    themeToggleLightIcon.classList.remove('hidden');
-} else {
-    themeToggleDarkIcon.classList.remove('hidden');
-}
+        <footer
+            class="m-4 mx-auto w-full max-w-full rounded-lg bg-white dark:bg-dark-back lg:w-10/12 lg:max-w-4xl 2xl:max-w-6xl"
+        >
+            <div
+                class="mx-auto w-full max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
+            >
+                <span class="text-sm text-gray-500 dark:text-gray-400 sm:text-center"
+                    >© 2024 All Rights Reserved.
+                </span>
+                <ul
+                    class="mt-3 flex flex-wrap items-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0"
+                >
+                    <li>
+                        <a href="/about" class="m-6 me-4 hover:underline md:me-6">About</a>
+                    </li>
+                    <li>
+                        <a href="/privacy" class="me-4 hover:underline md:me-6"
+                            >プライバシーポリシー</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </footer>
+        <div
+            class="elevator fixed bottom-5 right-5 h-10 w-10 text-black dark:text-white md:h-12 md:w-12"
+        >
+            <svg
+                class="sweet-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                x="0px"
+                y="0px"
+                viewBox="0 0 100 100"
+                enable-background="new 0 0 100 100"
+                xml:space="preserve"
+            >
+                <path
+                    fill="currentColor"
+                    stroke="currentColor"
+                    d="M70,47.5H30c-1.4,0-2.5,1.1-2.5,2.5v40c0,1.4,1.1,2.5,2.5,2.5h40c1.4,0,2.5-1.1,2.5-2.5V50C72.5,48.6,71.4,47.5,70,47.5z   M47.5,87.5h-5v-25h5V87.5z M57.5,87.5h-5v-25h5V87.5z M67.5,87.5h-5V60c0-1.4-1.1-2.5-2.5-2.5H40c-1.4,0-2.5,1.1-2.5,2.5v27.5h-5  v-35h35V87.5z"
+                ></path>
+                <path
+                    fill="currentColor"
+                    stroke="currentColor"
+                    d="M50,42.5c1.4,0,2.5-1.1,2.5-2.5V16l5.7,5.7c0.5,0.5,1.1,0.7,1.8,0.7s1.3-0.2,1.8-0.7c1-1,1-2.6,0-3.5l-10-10  c-1-1-2.6-1-3.5,0l-10,10c-1,1-1,2.6,0,3.5c1,1,2.6,1,3.5,0l5.7-5.7v24C47.5,41.4,48.6,42.5,50,42.5z"
+                ></path>
+            </svg>
+        </div>
+        <script is:inline>
+            var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-var themeToggleBtn = document.getElementById('theme-toggle');
+            // Change the icons inside the button based on previous settings
+            if (
+                localStorage.getItem('color-theme') === 'dark' ||
+                (!('color-theme' in localStorage) &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ) {
+                themeToggleLightIcon.classList.remove('hidden');
+            } else {
+                themeToggleDarkIcon.classList.remove('hidden');
+            }
 
-themeToggleBtn.addEventListener('click', function() {
+            var themeToggleBtn = document.getElementById('theme-toggle');
 
-    // toggle icons inside button
-    themeToggleDarkIcon.classList.toggle('hidden');
-    themeToggleLightIcon.classList.toggle('hidden');
+            themeToggleBtn.addEventListener('click', function () {
+                // toggle icons inside button
+                themeToggleDarkIcon.classList.toggle('hidden');
+                themeToggleLightIcon.classList.toggle('hidden');
 
-    // if set via local storage previously
-    if (localStorage.getItem('color-theme')) {
-        if (localStorage.getItem('color-theme') === 'light') {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('color-theme', 'dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('color-theme', 'light');
-        }
+                // if set via local storage previously
+                if (localStorage.getItem('color-theme')) {
+                    if (localStorage.getItem('color-theme') === 'light') {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    }
 
-    // if NOT set via local storage previously
-    } else {
-        if (document.documentElement.classList.contains('dark')) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('color-theme', 'light');
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('color-theme', 'dark');
-        }
-    }
-
-    });
-// elevator
-var Elevator=function(n){"use strict";function e(n,e,t,o){return n/=o/2,1>n?t/2*n*n+e:(n--,-t/2*(n*(n-2)-1)+e)}function t(n,e){for(var t in e){var o=void 0===n[t]&&"function"!=typeof t;o&&(n[t]=e[t])}return n}function o(n){for(var e=0;n;)e+=n.offsetTop||0,n=n.offsetParent;return g&&(e-=g),e}function l(n){T||(T=n);var t=n-T,o=e(t,k,y-k,b);window.scrollTo(0,o),b>t?w=requestAnimationFrame(l):r()}function i(){return window.requestAnimationFrame&&window.Audio&&window.addEventListener}function u(){T=null,k=null,h=!1}function a(){C&&(y=o(C))}function r(){u(),f&&(f.pause(),f.currentTime=0),p&&p.play(),v&&v()}function d(){h&&(cancelAnimationFrame(w),u(),f&&(f.pause(),f.currentTime=0),a(),window.scrollTo(0,y))}function c(n){n.addEventListener?n.addEventListener("click",F.elevate,!1):n.attachEvent("onclick",function(){a(),document.documentElement.scrollTop=y,document.body.scrollTop=y,window.scroll(0,y)})}function s(n){A=document.body;var e={duration:void 0,mainAudio:!1,endAudio:!1,preloadAudio:!0,loopAudio:!0,startCallback:null,endCallback:null};n=t(n,e),n.element&&c(n.element),i()&&(n.duration&&(E=!0,b=n.duration),n.targetElement&&(C=n.targetElement),n.verticalPadding&&(g=n.verticalPadding),window.addEventListener("blur",d,!1),n.mainAudio&&(f=new Audio(n.mainAudio),f.setAttribute("preload",n.preloadAudio),f.setAttribute("loop",n.loopAudio)),n.endAudio&&(p=new Audio(n.endAudio),p.setAttribute("preload","true")),n.endCallback&&(v=n.endCallback),n.startCallback&&(m=n.startCallback))}var m,f,p,v,A=null,w=null,b=null,E=!1,T=null,k=null,y=0,C=null,g=null,h=!1,F=this;this.elevate=function(){h||(h=!0,k=document.documentElement.scrollTop||A.scrollTop,a(),E||(b=1.5*Math.abs(y-k)),requestAnimationFrame(l),f&&f.play(),m&&m())},s(n)};"undefined"!=typeof module&&module.exports&&(module.exports=Elevator);
-window.addEventListener("load",function() {
-  var elevator = new Elevator({
-    element: document.querySelector('.elevator'),
-    endAudio: '/audio/elevator/audio.mp3',
-  });
-});
-</script>
-	</body>
+                    // if NOT set via local storage previously
+                } else {
+                    if (document.documentElement.classList.contains('dark')) {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    } else {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    }
+                }
+            });
+            // elevator
+            var Elevator = function (n) {
+                'use strict';
+                function e(n, e, t, o) {
+                    return (
+                        (n /= o / 2),
+                        1 > n ? (t / 2) * n * n + e : (n--, (-t / 2) * (n * (n - 2) - 1) + e)
+                    );
+                }
+                function t(n, e) {
+                    for (var t in e) {
+                        var o = void 0 === n[t] && 'function' != typeof t;
+                        o && (n[t] = e[t]);
+                    }
+                    return n;
+                }
+                function o(n) {
+                    for (var e = 0; n; ) (e += n.offsetTop || 0), (n = n.offsetParent);
+                    return g && (e -= g), e;
+                }
+                function l(n) {
+                    T || (T = n);
+                    var t = n - T,
+                        o = e(t, k, y - k, b);
+                    window.scrollTo(0, o), b > t ? (w = requestAnimationFrame(l)) : r();
+                }
+                function i() {
+                    return window.requestAnimationFrame && window.Audio && window.addEventListener;
+                }
+                function u() {
+                    (T = null), (k = null), (h = !1);
+                }
+                function a() {
+                    C && (y = o(C));
+                }
+                function r() {
+                    u(), f && (f.pause(), (f.currentTime = 0)), p && p.play(), v && v();
+                }
+                function d() {
+                    h &&
+                        (cancelAnimationFrame(w),
+                        u(),
+                        f && (f.pause(), (f.currentTime = 0)),
+                        a(),
+                        window.scrollTo(0, y));
+                }
+                function c(n) {
+                    n.addEventListener
+                        ? n.addEventListener('click', F.elevate, !1)
+                        : n.attachEvent('onclick', function () {
+                              a(),
+                                  (document.documentElement.scrollTop = y),
+                                  (document.body.scrollTop = y),
+                                  window.scroll(0, y);
+                          });
+                }
+                function s(n) {
+                    A = document.body;
+                    var e = {
+                        duration: void 0,
+                        mainAudio: !1,
+                        endAudio: !1,
+                        preloadAudio: !0,
+                        loopAudio: !0,
+                        startCallback: null,
+                        endCallback: null,
+                    };
+                    (n = t(n, e)),
+                        n.element && c(n.element),
+                        i() &&
+                            (n.duration && ((E = !0), (b = n.duration)),
+                            n.targetElement && (C = n.targetElement),
+                            n.verticalPadding && (g = n.verticalPadding),
+                            window.addEventListener('blur', d, !1),
+                            n.mainAudio &&
+                                ((f = new Audio(n.mainAudio)),
+                                f.setAttribute('preload', n.preloadAudio),
+                                f.setAttribute('loop', n.loopAudio)),
+                            n.endAudio &&
+                                ((p = new Audio(n.endAudio)), p.setAttribute('preload', 'true')),
+                            n.endCallback && (v = n.endCallback),
+                            n.startCallback && (m = n.startCallback));
+                }
+                var m,
+                    f,
+                    p,
+                    v,
+                    A = null,
+                    w = null,
+                    b = null,
+                    E = !1,
+                    T = null,
+                    k = null,
+                    y = 0,
+                    C = null,
+                    g = null,
+                    h = !1,
+                    F = this;
+                (this.elevate = function () {
+                    h ||
+                        ((h = !0),
+                        (k = document.documentElement.scrollTop || A.scrollTop),
+                        a(),
+                        E || (b = 1.5 * Math.abs(y - k)),
+                        requestAnimationFrame(l),
+                        f && f.play(),
+                        m && m());
+                }),
+                    s(n);
+            };
+            'undefined' != typeof module && module.exports && (module.exports = Elevator);
+            window.addEventListener('load', function () {
+                var elevator = new Elevator({
+                    element: document.querySelector('.elevator'),
+                    endAudio: '/audio/elevator/audio.mp3',
+                });
+            });
+        </script>
+    </body>
 </html>

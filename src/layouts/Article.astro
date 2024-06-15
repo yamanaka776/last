@@ -1,72 +1,111 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { Icon } from 'astro-icon/components'
-const {info, meta, og, title,date} =Astro.props;
+import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+const { info, meta, og, title, date } = Astro.props;
 ---
+
 <Layout og={og} title={title} meta={meta}>
-	<script is:inline>
-	const copyText = (text) =>{
-	text.toString();
-	writeText(text);
-	};
-	</script>
-	<article>
-	<h1 class="text-center text-4xl ml-3 font-bold text-main-text dark:text-dark-text">{title}</h1>
-    <div class="flex">
-	    <p class="publishedAt m-4 text-sub-text dark:text-dark-texti text-xl">{new Intl.DateTimeFormat('ja-JP').format(date)}</p>
-    <div class="ml-auto flex">
-	    <a href=`https://b.hatena.ne.jp/entry/s/${Astro.url}` class="ml-4">
-		    <Icon name="cib:hatena-bookmark" class="text-2xl lg:text-4xl text-blue-400 dark:text-slate-200" />
-	    </a>
-	    <a href=`https://twitter.com/intent/tweet?url=${Astro.url}` class="mx-4">
-		    <Icon name="prime:twitter" class="text-2xl lg:text-4xl text-blue-400 dark:text-slate-200" />
-	    </a>
-	    <a href="https://ear-diary.com/rss.xml">
-		    <Icon name="tabler:rss" class="lg:text-4xl text-2xl text-blue-400 dark:text-slate-200" />
-	    </a>
-				<a href="#" onclick=`copyText('${Astro.url}');`>
-			<Icon name="ph:copy" class="lg:text-4xl text2xl text-blue-400 dark:text-slate-200 active:text-blue-200 dark:active:text-slate-100" />
-				</a>
-
-    </div>
-    </div>
-    <a href=`/tags/${info}` class="m-2 bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">{info}</a> 
-    <div class="mt-2 prose lg:prose-xl text-main-text dark:prose-invert dark:!text-dark-text w-full mx-2">
-	    <slot />
-    </div>
-    <div class="mx-auto flex border-2 rounded-lg border-slate-400 p-3 w-fit h-fit">
-	    <a href=`https://b.hatena.ne.jp/entry/s/${Astro.url}` class="ml-4">
-		    <Icon name="cib:hatena-bookmark" class="text-2xl lg:text-4xl text-blue-400 dark:text-slate-200" />
-	    </a>
-	    <a href=`https://twitter.com/intent/tweet?url=${Astro.url}` class="mx-4">
-		    <Icon name="prime:twitter" class="text-2xl lg:text-4xl text-blue-400 dark:text-slate-200" />
-	    </a>
-	    <a href="https://ear-diary.com/rss.xml">
-		    <Icon name="tabler:rss" class="lg:text-4xl text-2xl text-blue-400 dark:text-slate-200" />
-	    </a>
-				<a href="#" onclick=`writeText({paurl});`>
-			<Icon name="ph:copy" class="lg:text-4xl text2xl test-blue-400 dark:text-slate-200" />
-				</a>
-
-    </div>
-	</article>
+    <script is:inline>
+        const copyText = (text) => {
+            text.toString();
+            writeText(text);
+        };
+    </script>
+    <article>
+        <h1 class="ml-3 text-center text-4xl font-bold text-main-text dark:text-dark-text">
+            {title}
+        </h1>
+        <div class="flex">
+            <p class="publishedAt dark:text-dark-texti m-4 text-xl text-sub-text">
+                {new Intl.DateTimeFormat('ja-JP').format(date)}
+            </p>
+            <div class="ml-auto flex">
+                <a href=`https://b.hatena.ne.jp/entry/s/${Astro.url}` class="ml-4">
+                    <Icon
+                        name="cib:hatena-bookmark"
+                        class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
+                    />
+                </a>
+                <a href=`https://twitter.com/intent/tweet?url=${Astro.url}` class="mx-4">
+                    <Icon
+                        name="prime:twitter"
+                        class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
+                    />
+                </a>
+                <a href="https://ear-diary.com/rss.xml">
+                    <Icon
+                        name="tabler:rss"
+                        class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
+                    />
+                </a>
+                <a href="#" onclick=`copyText('${Astro.url}');`>
+                    <Icon
+                        name="ph:copy"
+                        class="text2xl text-blue-400 active:text-blue-200 dark:text-slate-200 dark:active:text-slate-100 lg:text-4xl"
+                    />
+                </a>
+            </div>
+        </div>
+        <a
+            href=`/tags/${info}`
+            class="m-2 me-2 rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300"
+            >{info}</a
+        >
+        <div
+            class="prose mx-2 mt-2 w-full text-main-text dark:prose-invert lg:prose-xl dark:!text-dark-text"
+        >
+            <slot />
+        </div>
+        <div class="mx-auto flex h-fit w-fit rounded-lg border-2 border-slate-400 p-3">
+            <a href=`https://b.hatena.ne.jp/entry/s/${Astro.url}` class="ml-4">
+                <Icon
+                    name="cib:hatena-bookmark"
+                    class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
+                />
+            </a>
+            <a href=`https://twitter.com/intent/tweet?url=${Astro.url}` class="mx-4">
+                <Icon
+                    name="prime:twitter"
+                    class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
+                />
+            </a>
+            <a href="https://ear-diary.com/rss.xml">
+                <Icon
+                    name="tabler:rss"
+                    class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
+                />
+            </a>
+            <a href="#" onclick=`writeText({paurl});`>
+                <Icon
+                    name="ph:copy"
+                    class="text2xl test-blue-400 dark:text-slate-200 lg:text-4xl"
+                />
+            </a>
+        </div>
+    </article>
     <div id="disqus_thread"></div>
-<script type="text/partytown" is:inline>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
+    <script type="text/partytown" is:inline>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
     var disqus_config = function () {
     this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://EXAMPLE.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        (function () {
+            // DON'T EDIT BELOW THIS LINE
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://EXAMPLE.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript
+        >Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
+            >comments powered by Disqus.</a
+        ></noscript
+    >
 </Layout>

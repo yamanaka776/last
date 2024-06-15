@@ -1,18 +1,18 @@
 ---
-import Layout from "../layouts/Layout.astro";
-const {frontmatter} = Astro.props;
-import { Icon } from 'astro-icon/components'
+import Layout from '../layouts/Layout.astro';
+const { frontmatter } = Astro.props;
+import { Icon } from 'astro-icon/components';
 const title = frontmatter.title;
 const og = frontmatter.og;
 const meta = frontmatter.meta;
 const eyecatch = frontmatter.eyacatch;
 const date = new Date(frontmatter.date).toLocaleDateString('ja-Jp');
 ---
-<Layout title={title} og={og} meta={meta}>
-    <h1 class="title text-4xl ml-3 font-bold text-main-text dark:text-dark-text">{title}</h1>
-    <p class="publishedAt m-4 text-sub-text dark:text-dark-texti text-xl">{date}</p>
-    <div class="prose lg:prose-xl text-main-text dark:prose-invert dark:!text-dark-text">
 
-	    <slot />
+<Layout title={title} og={og} meta={meta}>
+    <h1 class="title ml-3 text-4xl font-bold text-main-text dark:text-dark-text">{title}</h1>
+    <p class="publishedAt dark:text-dark-texti m-4 text-xl text-sub-text">{date}</p>
+    <div class="prose text-main-text dark:prose-invert lg:prose-xl dark:!text-dark-text">
+        <slot />
     </div>
 </Layout>

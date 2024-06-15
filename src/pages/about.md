@@ -1,15 +1,21 @@
 ---
 layout: ../layouts/Md.astro
-title:  このブログについて
+title: このブログについて
 date: 2024-05-22
 meta: about
 og: https://ear-diary.com/ear.png
 ---
+
 # このブログについて
+
 ## 概要
+
 このブログは『耳日記』というブログです。
+
 ## 連絡先
+
 連絡は以下のメールアドレスまでお願いします。
+
 <script type="text/javascript" is:inline>
 <!--
 function converter(M){
@@ -30,6 +36,8 @@ converter(String.fromCharCode(98,110,109,115,96,98,115,63,100,96,113,44,99,104,9
 document.write('<a href=JavaScript:mail_to("","")>お問い合わせ<\/a>');
 //-->
 </script>
+
 ## プライバシーポリシー
+
 プライバシポリシーはこちらのページです。
 [プライバシーポリシー](https://ear-diary.com/privacy)
