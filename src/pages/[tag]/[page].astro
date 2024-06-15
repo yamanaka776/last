@@ -19,8 +19,8 @@ const parms = Astro.params;
 const { page } = Astro.props;
 ---
 
-<Layout Title={`${parms}がついた記事/${page.currentPage}`}>
-    <p class="text-2xl text-main-text dark:text-dark-text">{parms}のタグが付いた記事</p>
+<Layout Title={`${page.data[0].data.info}がついた記事/${page.currentPage}`}>
+    <p class="text-2xl text-main-text dark:text-dark-text">{page.data[0].data.info}のタグが付いた記事</p>
     <ul>
         {
             page.data.map((post: any) => (
