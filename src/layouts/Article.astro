@@ -24,8 +24,8 @@ const {info, meta, og, title,date} =Astro.props;
 	    <a href="https://ear-diary.com/rss.xml">
 		    <Icon name="tabler:rss" class="lg:text-4xl text-2xl text-blue-400 dark:text-slate-200" />
 	    </a>
-				<a href="#" onclick=`copyText(${Astro.url});`>
-			<Icon name="ph:copy" class="lg:text-4xl text2xl test-blue-400 dark:text-slate-200" />
+				<a href="#" onclick=`copyText('${Astro.url}');`>
+			<Icon name="ph:copy" class="lg:text-4xl text2xl text-blue-400 dark:text-slate-200 active:text-blue-200 dark:active:text-slate-100" />
 				</a>
 
     </div>
