@@ -20,13 +20,13 @@ const { info, meta, og, title, date } = Astro.props;
                 {new Intl.DateTimeFormat('ja-JP').format(date)}
             </p>
             <div class="ml-auto flex">
-                <a href=`https://b.hatena.ne.jp/entry/s/${Astro.url}` class="ml-4">
+                <a href={`https://b.hatena.ne.jp/entry/s/${Astro.url}`} class="ml-4">
                     <Icon
                         name="cib:hatena-bookmark"
                         class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
                     />
                 </a>
-                <a href=`https://twitter.com/intent/tweet?url=${Astro.url}` class="mx-4">
+                <a href={`https://twitter.com/intent/tweet?url=${Astro.url}`} class="mx-4">
                     <Icon
                         name="prime:twitter"
                         class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
@@ -38,7 +38,7 @@ const { info, meta, og, title, date } = Astro.props;
                         class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
                     />
                 </a>
-                <a href="#" onclick=`copyText('${Astro.url}');`>
+                <a href="#" onclick={`copyText('${Astro.url}');`}>
                     <Icon
                         name="ph:copy"
                         class="text2xl text-blue-400 active:text-blue-200 dark:text-slate-200 dark:active:text-slate-100 lg:text-4xl"
