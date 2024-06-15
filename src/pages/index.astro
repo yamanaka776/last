@@ -21,7 +21,7 @@ const uniqueTags = [...new Set(allPosts.map((post) => post.data.info).flat())];
                                 <div class="sm:test-4xl text-2xl font-bold">{post.data.title}</div>
                                 <div class="flex w-full flex-wrap">
                                     <a
-                                        href={`/tags/${post.data.info}`}
+                                        href={`/${post.data.info}/1`}
                                         class="me-2 block rounded-full bg-red-100 px-2.5 py-0.5 text-red-800 dark:bg-red-900 dark:text-red-300"
                                     >
                                         {post.data.info}{' '}
@@ -68,7 +68,7 @@ const uniqueTags = [...new Set(allPosts.map((post) => post.data.info).flat())];
                                             </div>
                                             <div class="flex w-full flex-wrap">
                                                 <a
-                                                    href={`/tags/${post.data.info}`}
+                                                    href={`/${post.data.info}/1`}
                                                     class="me-2 block rounded-full bg-red-100 px-2.5 py-0.5 text-red-800 dark:bg-red-900 dark:text-red-300"
                                                 >
                                                     {post.data.info}{' '}
