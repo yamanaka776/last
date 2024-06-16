@@ -1,14 +1,14 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
 const { og, meta, title } = Astro.props;
-import Search from '../components/Search.astro';
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
+import Search from "../components/Search.astro";
 const schema = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: title,
-    url: Astro.url,
-    description: meta,
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	name: title,
+	url: Astro.url,
+	description: meta,
 });
 ---
 

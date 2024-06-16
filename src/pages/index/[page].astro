@@ -1,9 +1,9 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
 export async function getStaticPaths({ paginate }) {
-    const posts = await getCollection('blog');
-    return paginate(posts, { pageSize: 10 });
+	const posts = await getCollection("blog");
+	return paginate(posts, { pageSize: 10 });
 }
 const { page } = Astro.props;
 ---

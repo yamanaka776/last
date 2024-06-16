@@ -1,12 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-let posts = await getCollection('blog');
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+let posts = await getCollection("blog");
 if (posts.length > 10) {
-    posts = posts.slice(0, 9);
+	posts = posts.slice(0, 9);
 }
-const allPosts = await getCollection('blog');
-const uniqueTags = [...new Set(allPosts.map((post) => post.data.info).flat())];
+const allPosts = await getCollection("blog");
+const uniqueTags = [...new Set(allPosts.flatMap((post) => post.data.info))];
 ---
 
 <Layout meta="index page" title="index" og="https://ear-diary.com/ear.png">

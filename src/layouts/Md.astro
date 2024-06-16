@@ -1,12 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 const { frontmatter } = Astro.props;
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 const title = frontmatter.title;
 const og = frontmatter.og;
 const meta = frontmatter.meta;
 const eyecatch = frontmatter.eyacatch;
-const date = new Date(frontmatter.date).toLocaleDateString('ja-Jp');
+const date = new Date(frontmatter.date).toLocaleDateString("ja-Jp");
 ---
 
 <Layout title={title} og={og} meta={meta}>
