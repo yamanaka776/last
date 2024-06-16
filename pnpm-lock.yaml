@@ -102,6 +102,9 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.13(tailwindcss@3.4.4)
+      lefthook:
+        specifier: ^1.6.16
+        version: 1.6.16
 
 packages:
 
@@ -1850,6 +1853,50 @@ packages:
 
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
+
+  lefthook-darwin-arm64@1.6.16:
+    resolution: {integrity: sha512-VwOegHjdu3jHBUoNsf2k/BUipHs7SpkF861ZQNTkLKqXneLDmiqljkPwruJi688oUC4otNOYJNqoron+DFy4BA==}
+    cpu: [arm64]
+    os: [darwin]
+
+  lefthook-darwin-x64@1.6.16:
+    resolution: {integrity: sha512-opl1Yz1F5t11LLnelcu7Bok/1cnYaoCBSPve71jFwAq8W9wwHLbDLHLGLpRUcj5PxUpUkYzfl5RmGoNFLfD44A==}
+    cpu: [x64]
+    os: [darwin]
+
+  lefthook-freebsd-arm64@1.6.16:
+    resolution: {integrity: sha512-MFsGFkNRRtpphTa+gLFt5PwtaBFlgEXVlfhzwUZOZcRT99B2EkvTP8MacOuWeixy0yfIa+kluqonPXBZdQ9f0w==}
+    cpu: [arm64]
+    os: [freebsd]
+
+  lefthook-freebsd-x64@1.6.16:
+    resolution: {integrity: sha512-4+7StS5Tffzri3Zof3jMm0QvdUgF+vRGIfw31cDydxcSPIXJjJSEKwA2AhMOSPeq1i9MyJmqfFXSsgskHP+dvg==}
+    cpu: [x64]
+    os: [freebsd]
+
+  lefthook-linux-arm64@1.6.16:
+    resolution: {integrity: sha512-ytlMhHscl6kSGMRPtl2E+yMll3sLT41lsXUo6HyJ53Eg7fJ7sAhP38QdZBnXqJDZBh0Z21DbWuwaJ2QOgCvNew==}
+    cpu: [arm64]
+    os: [linux]
+
+  lefthook-linux-x64@1.6.16:
+    resolution: {integrity: sha512-te+dZNhFhGRQqKFiSG4zeBcklXBRHNtLHzoGi15vRTZAocLrQkVydd9KGBRPgEvelXJuS4X7dGzuI7ijFVFZqA==}
+    cpu: [x64]
+    os: [linux]
+
+  lefthook-windows-arm64@1.6.16:
+    resolution: {integrity: sha512-ip4BuMTdT7lGNo6zfVaoHmROJIrkgUf0LzpI6LpjbVuNPWsM896vEB0pzCj9HXOZtAdqHcLwzA647SDakveUVQ==}
+    cpu: [arm64]
+    os: [win32]
+
+  lefthook-windows-x64@1.6.16:
+    resolution: {integrity: sha512-gsfzmVIXe8sk8JbVcK3JDub1ymcQmdv9UYy+8NkkymJJ98WE6tb29LQatiWmwDhMsn7i2DvhBC/aCTYK4xAlbA==}
+    cpu: [x64]
+    os: [win32]
+
+  lefthook@1.6.16:
+    resolution: {integrity: sha512-KPwx9zyu+LivC8h6v+8CUGMK6TZ9ZqTv326OWFWJFsWXLUffG2uRaolui7b8gCGavJZMl8mYPXvsiNJgn8RolA==}
+    hasBin: true
 
   lightningcss-darwin-arm64@1.24.1:
     resolution: {integrity: sha512-1jQ12jBy+AE/73uGQWGSafK5GoWgmSiIQOGhSEXiFJSZxzV+OXIx+a9h2EYHxdJfX864M+2TAxWPWb0Vv+8y4w==}
@@ -4959,6 +5006,41 @@ snapshots:
   kleur@4.1.5: {}
 
   kolorist@1.8.0: {}
+
+  lefthook-darwin-arm64@1.6.16:
+    optional: true
+
+  lefthook-darwin-x64@1.6.16:
+    optional: true
+
+  lefthook-freebsd-arm64@1.6.16:
+    optional: true
+
+  lefthook-freebsd-x64@1.6.16:
+    optional: true
+
+  lefthook-linux-arm64@1.6.16:
+    optional: true
+
+  lefthook-linux-x64@1.6.16:
+    optional: true
+
+  lefthook-windows-arm64@1.6.16:
+    optional: true
+
+  lefthook-windows-x64@1.6.16:
+    optional: true
+
+  lefthook@1.6.16:
+    optionalDependencies:
+      lefthook-darwin-arm64: 1.6.16
+      lefthook-darwin-x64: 1.6.16
+      lefthook-freebsd-arm64: 1.6.16
+      lefthook-freebsd-x64: 1.6.16
+      lefthook-linux-arm64: 1.6.16
+      lefthook-linux-x64: 1.6.16
+      lefthook-windows-arm64: 1.6.16
+      lefthook-windows-x64: 1.6.16
 
   lightningcss-darwin-arm64@1.24.1:
     optional: true

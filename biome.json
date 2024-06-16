@@ -16,5 +16,10 @@
 		"globals": [
 			"Astro"
 		]
+	},
+	"files": {
+		"ignore": [
+			"./src/env.d.ts"
+		]
 	}
 }
