@@ -1,4 +1,5 @@
 ---
+
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 export async function getStaticPaths({ paginate }) {
@@ -6,9 +7,13 @@ export async function getStaticPaths({ paginate }) {
 	return paginate(posts, { pageSize: 10 });
 }
 const { page } = Astro.props;
+import { Breadcrumbs } from "astro-breadcrumbs";
+
+import "astro-breadcrumbs/breadcrumbs.css";
 ---
 
 <Layout meta="index page" title="index">
+    <Breadcrumbs />
     <ul>
         {
             page.data.map((post: any) => (

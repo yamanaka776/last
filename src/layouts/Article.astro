@@ -2,9 +2,12 @@
 import { Icon } from "astro-icon/components";
 import Layout from "../layouts/Layout.astro";
 const { info, meta, og, title, date } = Astro.props;
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
 ---
 
 <Layout og={og} title={title} meta={meta}>
+    <Breadcrumbs />
     <article>
         <h1 class="ml-3 text-center text-4xl font-bold text-main-text dark:text-dark-text">
             {title}
