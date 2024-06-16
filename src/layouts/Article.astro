@@ -10,7 +10,7 @@ const { info, meta, og, title, date } = Astro.props;
             {title}
         </h1>
         <div class="flex">
-            <p class="publishedAt dark:text-dark-texti m-4 text-xl text-sub-text">
+            <p class="publishedAt m-4 text-xl text-sub-text dark:text-dark-text">
                 {new Intl.DateTimeFormat('ja-JP').format(date)}
             </p>
             <div class="ml-auto flex">
