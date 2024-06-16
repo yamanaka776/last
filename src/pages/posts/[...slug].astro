@@ -59,13 +59,12 @@ const allPosts = await getCollection('blog');
                                         href={`/${post.data.info}/1`}
                                         class="dark: me-2 block rounded-full bg-red-100 bg-red-900 px-2.5 py-0.5 text-red-800 dark:text-red-300"
                                     >
-                                        {post.data.info}{' '}
+                                        {post.data.info}
                                     </a>
                                     <time
                                         datetime={post.data.pubDate.toISOString()}
                                         class="ml-1 block w-fit text-sub-text dark:text-dark-text"
                                     >
-                                        {' '}
                                         {new Intl.DateTimeFormat('ja-JP').format(post.data.pubDate)}
                                     </time>
                                 </div>
