@@ -1,13 +1,13 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-import robotsTxt from 'astro-robots-txt';
+import partytown from '@astrojs/partytown';
+import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
+import itsmatteomanfsecurityTxt from '@itsmatteomanf/astro-security-txt';
 import playformCompress from '@playform/compress';
 import playformInline from '@playform/inline';
-import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
-import react from '@astrojs/react';
-import itsmatteomanfsecurityTxt from '@itsmatteomanf/astro-security-txt';
+import robotsTxt from 'astro-robots-txt';
+import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({

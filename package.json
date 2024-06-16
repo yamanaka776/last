@@ -46,6 +46,7 @@
         "accessible-astro-components": "^2.3.6",
         "prettier": "^3.3.2",
         "prettier-plugin-astro": "^0.14.0",
+        "prettier-plugin-organize-imports": "^3.2.4",
         "prettier-plugin-tailwindcss": "^0.6.4"
     }
 }

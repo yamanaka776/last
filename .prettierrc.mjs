@@ -4,7 +4,11 @@ export default {
     printWidth: 100,
     tabWidth: 4,
     singleQuote: true,
-    plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
+    plugins: [
+        'prettier-plugin-astro',
+        'prettier-plugin-tailwindcss',
+        'prettier-plugin-organize-imports',
+    ],
     tailwindConfig: './tailwind.config.mjs',
     overrides: [
         {
