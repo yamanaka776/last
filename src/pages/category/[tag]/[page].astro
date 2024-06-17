@@ -16,7 +16,15 @@ export async function getStaticPaths({ paginate }) {
 		});
 	});
 }
-
+const customCrumbs = [
+{
+text: "Home",
+href: "/"
+},
+{
+text: info ,
+href: `/category/${info}/1/`
+}];
 const parms = Astro.params;
 const { page } = Astro.props;
 import { Breadcrumbs } from "astro-breadcrumbs";
@@ -25,7 +33,7 @@ import "astro-breadcrumbs/breadcrumbs.css";
 
 <Layout Title={`${page.data[0].data.info}がついた記事/${page.currentPage}`}>
     <div class="dark:!text-dark-text !text-main-text ml-2">
-    <Breadcrumbs>
+    <Breadcrumbs crumbs={customCrumbs}>
   <svg
     slot="separator"
     xmlns="http://www.w3.org/2000/svg"

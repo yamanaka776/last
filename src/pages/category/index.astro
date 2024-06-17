@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 const allPosts = await getCollection("blog");    
 const uniqueTags = [...new Set(allPosts.flatMap((post) => post.data.info))];
 import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
 ---
 <Layout og="https://ear-diary.com/ear.png" meta="all categories" Title="カテゴリー一覧">
     <div class="dark:text-dark-text text-main-text ml-2">
