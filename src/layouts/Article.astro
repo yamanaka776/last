@@ -15,10 +15,11 @@ href: `category/${info}/1`
 {
 text: title,
 href: "#"}];
+import "astro-breadcrumbs/breadcrumbs.css";
 ---
 
 <Layout og={og} title={title} meta={meta}>
-    <div class="dark:text-dark-text text-main-text ml-2">
+    <div class="!dark:text-dark-text !text-main-text ml-2">
     <Breadcrumbs crumbs={customCrumbs}>
   <svg
     slot="separator"

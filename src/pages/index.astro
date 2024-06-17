@@ -17,7 +17,7 @@ const uniqueTags = [...new Set(allPosts.flatMap((post) => post.data.info))];
                 {
                     posts.map((post: any) => (
                         <li class="w-max-full m-2 rounded-lg bg-[#f3f3f3] pl-1 shadow-xl dark:bg-[#383d43]">
-                            <a href={`/posts/${post.slug}`} aria-label={`${post.slug}にアクセス`}>
+                    <a href={`/${post.data.info}/${post.slug}`} aria-label={`${post.slug}にアクセス`}>
                                 <div class="sm:test-4xl text-2xl font-bold">{post.data.title}</div>
                                 <div class="flex w-full flex-wrap">
                                     <a
@@ -60,7 +60,7 @@ const uniqueTags = [...new Set(allPosts.flatMap((post) => post.data.info))];
                                 .map((post: any) => (
                                     <li class="w-max-full m-2 rounded-lg bg-[#f3f3f3] pl-1 shadow-xl dark:bg-[#383d43]">
                                         <a
-                                            href={`/posts/${post.slug}`}
+                            href={`/${post.data.info}/${post.slug}`}
                                             aria-label={`${post.slug}にアクセス`}
                                         >
                                             <div class="sm:test-4xl text-2xl font-bold">

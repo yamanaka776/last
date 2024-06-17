@@ -13,7 +13,7 @@ const { page } = Astro.props;
         {
             page.data.map((post: any) => (
                 <li class="rouded-xl m-2 w-full bg-[#f3f3f3] pl-1 shadow-lg dark:bg-[#383d43]">
-                    <a href={`/posts/${post.slug}`} aria-label={`${post.slug}にアクセス`}>
+            <a href={`/${post.data.info}/${post.slug}`} aria-label={`${post.slug}にアクセス`}>
                         <div class="text-2xl font-bold text-main-text dark:text-dark-text sm:text-4xl">
                             {post.data.title}
                         </div>
