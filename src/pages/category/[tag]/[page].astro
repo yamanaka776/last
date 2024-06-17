@@ -16,22 +16,20 @@ export async function getStaticPaths({ paginate }) {
 		});
 	});
 }
+const { page } = Astro.props;
+const manko = "/category/" + page.data[0].data.info + "/1/";
 const customCrumbs = [
 {
 text: "Home",
 href: "/"
-},
-{
-text: info ,
-href: `/category/${info}/1/`
 }];
+const popo = { text: page.data[0].data.info, href: manko};
+customCrumbs.push(popo);
 const parms = Astro.params;
-const { page } = Astro.props;
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 ---
-
-<Layout Title={`${page.data[0].data.info}がついた記事/${page.currentPage}`}>
+<Layout Title={page.data[0].data.info}>
     <div class="dark:!text-dark-text !text-main-text ml-2">
     <Breadcrumbs crumbs={customCrumbs}>
   <svg
@@ -61,7 +59,7 @@ import "astro-breadcrumbs/breadcrumbs.css";
                             {post.data.title}
                         </div>
                         <a
-                            href={`/tags/${post.data.info}`}
+                    href={`/category/${post.data.info}/1/`}
                             class="me-2 rounded-full bg-red-100 px-2.5 py-0.5 font-medium text-red-800 dark:bg-red-900 dark:text-red-300"
                         >
                             {post.data.info}
