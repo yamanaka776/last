@@ -1,13 +1,8 @@
 ---
-import { Icon } from "astro-icon/components";
-import Layout from "../layouts/Layout.astro";
 const { info, meta, og, title, date } = Astro.props;
-import { Breadcrumbs } from "astro-breadcrumbs";
-import "astro-breadcrumbs/breadcrumbs.css";
 ---
 
 <Layout og={og} title={title} meta={meta}>
-    <Breadcrumbs />
     <article>
         <h1 class="ml-3 text-center text-4xl font-bold text-main-text dark:text-dark-text">
             {title}
@@ -16,6 +11,11 @@ import "astro-breadcrumbs/breadcrumbs.css";
             <p class="publishedAt m-4 text-xl text-sub-text dark:text-dark-text">
                 {new Intl.DateTimeFormat('ja-JP').format(date)}
             </p>
+        <a
+            href={`/${info}/1`}
+            class="m-2 me-2 rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300"
+            >{info}</a
+        >
             <div class="ml-auto flex">
                 <a href={`https://b.hatena.ne.jp/entry/s/${Astro.url}`} class="ml-4">
                     <Icon
@@ -37,11 +37,6 @@ import "astro-breadcrumbs/breadcrumbs.css";
                 </a>
             </div>
         </div>
-        <a
-            href=`/tags/${info}`
-            class="m-2 me-2 rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300"
-            >{info}</a
-        >
         <div
             class="prose mx-2 mt-2 w-full text-main-text dark:prose-invert lg:prose-xl dark:!text-dark-text"
         >
@@ -68,29 +63,4 @@ import "astro-breadcrumbs/breadcrumbs.css";
             </a>
         </div>
     </article>
-    <div id="disqus_thread"></div>
-    <script type="text/partytown" is:inline>
-        /**
-         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-        /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-        (function () {
-            // DON'T EDIT BELOW THIS LINE
-            var d = document,
-                s = d.createElement('script');
-            s.src = 'https://EXAMPLE.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript
-        >Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript"
-            >comments powered by Disqus.</a
-        ></noscript
-    >
 </Layout>
