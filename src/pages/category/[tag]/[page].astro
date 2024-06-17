@@ -20,10 +20,11 @@ export async function getStaticPaths({ paginate }) {
 const parms = Astro.params;
 const { page } = Astro.props;
 import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
 ---
 
 <Layout Title={`${page.data[0].data.info}がついた記事/${page.currentPage}`}>
-    <div class="dark:text-dark-text text-main-text ml-2">
+    <div class="dark:!text-dark-text !text-main-text ml-2">
     <Breadcrumbs>
   <svg
     slot="separator"
