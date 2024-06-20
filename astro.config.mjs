@@ -10,6 +10,8 @@ import { defineConfig } from 'astro/config';
 import rehypeAutoAds from "rehype-auto-ads";
 import partytown from "@astrojs/partytown";
 
+import mdx from "@astrojs/mdx";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), robotsTxt({
@@ -22,7 +24,7 @@ export default defineConfig({
     config: {
       forward: ['dataLayer.push']
     }
-  }), playformInline(), playformCompress()],
+  }), playformInline(), playformCompress(), mdx()],
   site: 'https://ear-diary.com',
   image: {
     remotePatters: [{

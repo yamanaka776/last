@@ -10,6 +10,7 @@ meta: エスペラントは、ユダヤ系の眼科医、***ラザロ・ルド�
 ## 背景
 
 ![当時のポーランドの地図](/images/poland-map.png)
+
 Blank_map_of_Europe.svg: maix¿?derivative work: Alphathon /'æɫfə.θɒn/, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons
 
 ザメンホフは、1895年にポーランドで生まれた。当時のポーランドは帝政ロシアに支配されていた。町には、様々な違う言語を話す民族が暮らしていて、分断され、トラブルの原因となっていた。ザメンホフは、トラブルの主な原因は言語が異なる民族の間でのコミュニケーションに適した言語がないことにあると考えていた。彼の国際共通語への憧憬はこの時から始まった。
