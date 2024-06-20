@@ -9,8 +9,9 @@ import robotsTxt from 'astro-robots-txt';
 import { defineConfig } from 'astro/config';
 import rehypeAutoAds from "rehype-auto-ads";
 import partytown from "@astrojs/partytown";
-
+import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import mdx from "@astrojs/mdx";
+import remarkLinkCard from 'remark-link-card';
 
 // https://astro.build/config
 export default defineConfig({
@@ -37,11 +38,20 @@ export default defineConfig({
     defaultStrategy: 'viewport'
   },
   markdown: {
+    remarkPlugins: [
+      [
+        remarkLinkCard,
+        {
+          cache: true,
+          shortenUrl: true,
+        },
+      ],
+    ],
     rehypePlugins: [[rehypeAutoAds, {
       adCode: '<div class="mx-auto"></div>',
       countFrom: 2,
       paragraphInterval: 5
-    }]],
+    }], rehypeAccessibleEmojis],
     remarkRehype: {
       footnoteLabel: '脚注',
       footnoteBackLabel: 'コンテンツに戻る'
