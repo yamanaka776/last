@@ -1,7 +1,7 @@
 ---
-import { getCollection, getEntry } from "astro:content";    
-import Layout from "../../layouts/Layout.astro";    
-const allPosts = await getCollection("blog");    
+import { getCollection, getEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+const allPosts = await getCollection("blog");
 const uniqueTags = [...new Set(allPosts.flatMap((post) => post.data.info))];
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";

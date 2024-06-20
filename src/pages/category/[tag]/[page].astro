@@ -19,11 +19,12 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props;
 const manko = "/category/" + page.data[0].data.info + "/1/";
 const customCrumbs = [
-{
-text: "Home",
-href: "/"
-}];
-const popo = { text: page.data[0].data.info, href: manko};
+	{
+		text: "Home",
+		href: "/",
+	},
+];
+const popo = { text: page.data[0].data.info, href: manko };
 customCrumbs.push(popo);
 const parms = Astro.params;
 import { Breadcrumbs } from "astro-breadcrumbs";
