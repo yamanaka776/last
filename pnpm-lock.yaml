@@ -68,6 +68,9 @@ importers:
       astro-breadcrumbs:
         specifier: ^2.3.1
         version: 2.3.1(astro@4.10.2(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)(typescript@5.4.5))
+      astro-google-fonts-optimizer:
+        specifier: ^0.2.2
+        version: 0.2.2
       astro-icon:
         specifier: ^1.1.0
         version: 1.1.0
@@ -1219,6 +1222,9 @@ packages:
     resolution: {integrity: sha512-9SUAGZiUP9iCnYOdtngZpHk1Fyge78T3tR7QR1mdx5qjOv1jIGXxtqCdxL84rMJsxgGg+NEI72rb1lK7AeCb+w==}
     peerDependencies:
       astro: ^2.0.0-beta.0 || ^3.0.0 || ^4.0.0
+
+  astro-google-fonts-optimizer@0.2.2:
+    resolution: {integrity: sha512-YQxp/ExF3NzUomAGuu1VKecO7/ETRnhnE50gqwAqfpbGPZFj4MYa4XxK1ukBg3R63QmKuE5uurOiKmXiLzttuw==}
 
   astro-icon@1.1.0:
     resolution: {integrity: sha512-Nksc09p7UuHeMcPNS9w1pKqRw3+wEmmh0A3FJW+FNXvqaeWI4RLvD1MCWErpY3Z5Cvad317rvLdik/Hg8GEk8Q==}
@@ -4569,6 +4575,8 @@ snapshots:
   astro-breadcrumbs@2.3.1(astro@4.10.2(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)(typescript@5.4.5)):
     dependencies:
       astro: 4.10.2(@types/node@20.14.2)(lightningcss@1.24.1)(terser@5.31.0)(typescript@5.4.5)
+
+  astro-google-fonts-optimizer@0.2.2: {}
 
   astro-icon@1.1.0:
     dependencies:
