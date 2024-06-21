@@ -28,7 +28,7 @@ const schema = JSON.stringify({
     })
     .then()
     .catch(err => {
-                    contentBlock = document.getElementById('ad-detect');
+                  const contentBlock = document.getElementById('ad-detect');
                     contentBlock.insertAdjacentHTML('afterbegin', '<div style=\'background-color:#FA514B; width:100%;\'><div style=\'font-weight: bold;color:white;\'>アドブロックを検知しました</div><p style=\'color:white;margin-left: auto; margin-right: auto;\'>アドブロックを検知しました。最近、web広告の品質が著しく低下していることには、私も同意します。アドブロックを使わざるをえない状況といってもいいでしょう。ですが、広告はブログ運営の重要なモチベーションです。もしよろしければ、アドブロックを解除していただけないでしょうか。ご協力をお願いします。</p></div>');
 	}
     )}
