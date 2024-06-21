@@ -19,6 +19,35 @@ const schema = JSON.stringify({
         prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"
     >
         <meta charset="utf-8" />
+        <script src="/ad.js" is:inline></script>
+        	<script is:inline>
+	// Configure the adblock detector
+	(function(){
+		var enabledEl = document.getElementById('adb-enabled');
+		function adBlockDetected() {
+			enabledEl.style.display = 'block';
+		}
+		function adBlockNotDetected() {
+			enabledEl.style.display = 'none';
+		}
+		
+		if(typeof window.adblockDetector === 'undefined') {
+			adBlockDetected();
+		} else {
+			window.adblockDetector.init(
+				{
+					debug: true,
+					found: function(){
+						adBlockDetected();
+					},
+					notFound: function(){
+						adBlockNotDetected();
+					}
+				}
+			);
+		}
+	}());
+	</script>
         <script is:inline>
             // On page load or when changing themes, best to add inline in `head` to avoid FOUC
             if (
@@ -104,6 +133,9 @@ const schema = JSON.stringify({
                     </button>
                 </div>
             </header>
+            <div class="center w-full">
+<h5 class="bg-red-500 w-fit mx-auto text-xl" id="adb-enabled" style="display: none;">アドブロックを検知しました。最近、web広告の品質が著しく低下していることには、私も同意します。アドブロックを使わざるをえない状況といってもいいでしょう。ですが、広告はブログ運営の重要なモチベーションです。もしよろしければ、アドブロックを解除していただけないでしょうか。ご協力をお願いします。</h5>
+</div>
             <main class="dark:bg-dark-back">
                 <slot />
             </main>

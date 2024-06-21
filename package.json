@@ -50,9 +50,6 @@
         "@biomejs/biome": "1.8.1",
         "@tailwindcss/typography": "^0.5.13",
         "@textlint/textlint-plugin-markdown": "^14.0.4",
-        "rehype-accessible-emojis": "^0.3.2",
-        "textlint": "^14.0.4",
-        "textlint-plugin-mdx": "^1.0.1",
-        "textlint-rule-preset-jtf-style": "^2.3.14"
+        "rehype-accessible-emojis": "^0.3.2"
     }
 }
