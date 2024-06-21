@@ -20,6 +20,22 @@ const schema = JSON.stringify({
     >
         <meta charset="utf-8" />
         <script is:inline>
+        function detectAdBlock() {
+    fetch("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", {
+        method: "HEAD",
+        mode: "no-cors",
+        cache: "no-store"
+    })
+    .then()
+    .catch(err => {
+                    contentBlock = document.getElementById('ad-detect');
+                    contentBlock.insertAdjacentHTML('afterbegin', '<div style=\'background-color:#FA514B; width:100%;\'>
+                    <div style=\'font-weight: bold;color:white;\'>アドブロックを検知しました</div>
+                    <p style=\'color:white;margin-left: auto; margin-right: auto;\'>アドブロックを検知しました。最近、web広告の品質が著しく低下していることには、私も同意します。アドブロックを使わざるをえない状況といってもいいでしょう。ですが、広告はブログ運営の重要なモチベーションです。もしよろしければ、アドブロックを解除していただけないでしょうか。ご協力をお願いします。</p>
+                    </div>');
+	}
+    )}
+    window.addEventListener('load' , detectAsBlock());
             // On page load or when changing themes, best to add inline in `head` to avoid FOUC
             if (
                 localStorage.getItem('color-theme') === 'dark' ||
