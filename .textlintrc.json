@@ -1,0 +1,10 @@
+{
+  "plugins": {
+    "@textlint/markdown": true,
+    "mdx": true
+  },
+  "filters": {},
+  "rules": {
+    "preset-jtf-style": true
+  }
+}
