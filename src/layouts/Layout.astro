@@ -12,6 +12,7 @@ const schema = JSON.stringify({
 	url: canonicalURL,
 	description: meta,
 });
+import '../global.css';
 ---
 
 <html lang="ja">
@@ -19,15 +20,26 @@ const schema = JSON.stringify({
         prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"
     >
         <meta charset="utf-8" />
-        <script src="/prebid-ads.js" is:inline></script>
+        <script src="js/prebid-ads.js" is:inline></script>
         <script is:inline>
-        if( window.norika === undefined ){
-            let sora = document.createElement('div');
-            sora.innerText = 'アドブロックを検知しました。最近、web広告の品質が著しく低下していることには、私も同意します。アドブロックを使わざるをえない状況といってもいいでしょう。ですが、広告はブログ運営の重要なモチベーションです。もしよろしければ、アドブロックを解除していただけないでしょうか。ご協力をお願いします。';
-            sora.setAttribute('class','ad-detect');
-            let parentnode = document.getElementById('yuria');
-            parentnode.prepend(sora);
-      }
+        function aimi() {let sora = document.createElement('div');
+sora.innerText = 'あああああ';
+sora.setAttribute('class', 'ad-detect');
+let parentnode = document.getElementById('yuria');
+parentnode.prepend(sora);
+        }
+        function async detectAdBlock() {
+  let adBlockEnabled = false
+  const googleAdUrl = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+  try {
+    await fetch(new Request(googleAdUrl)).catch(_ => adBlockEnabled = true)
+  } catch (e) {
+    adBlockEnabled = true
+  } 
+            if (adBlockEnabled === true){aimi()};
+
+}
+detectAdBlock()
             // On page load or when changing themes, best to add inline in `head` to avoid FOUC
             if (
                 localStorage.getItem('color-theme') === 'dark' ||
@@ -58,6 +70,8 @@ const schema = JSON.stringify({
         <script type="application/ld+json" set:html={schema} is:inline />
         <title>{title}</title>
         <style is:global>
+        .ad-detect {font-size:32px;color:red;}
+
             body {
         font-family:'BIZ UDGothic', sans-serif;
             }
@@ -75,7 +89,7 @@ const schema = JSON.stringify({
     </head>
     <body class="w-full dark:bg-dark-back">
         <div class="mx-auto w-full max-w-full lg:w-10/12 lg:max-w-4xl 2xl:max-w-6xl">
-            <header class="w-ful flex md:h-16 h-24 p-2 shadow">
+            <header class="rounded w-ful flex md:h-16 h-24 p-2 shadow">
                 <Icon name="tabler:ear" class="text-xl dark:text-dark-text md:text-4xl" />
                 <a href="/" class="ml-0 mt-px text-xl font-bold dark:text-dark-text md:text-4xl"
                     >耳日記</a
