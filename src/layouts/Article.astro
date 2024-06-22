@@ -22,7 +22,9 @@ import "astro-breadcrumbs/breadcrumbs.css";
 
 <Layout og={og} title={title} meta={meta}>
     <div class="dark:!text-dark-text !text-main-text ml-2">
-    <Breadcrumbs crumbs={customCrumbs}>
+        <div class="my-2">
+            <Breadcrumbs crumbs={customCrumbs}>
+        </div>
   <svg
     slot="separator"
     xmlns="http://www.w3.org/2000/svg"
