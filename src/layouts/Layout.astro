@@ -73,11 +73,13 @@ const schema = JSON.stringify({
                 <a href="/" class="ml-0 mt-px text-xl font-bold dark:text-dark-text md:text-4xl"
                     >耳日記</a
                 >
+                <div class="ml-auto mr-0">
+                    <Search />
+                </div>
             </header>
             <main class="dark:bg-dark-back" id="yuria">
                 <slot />
             </main>
-            <Search />
         </div>
         <footer
             class="m-4 mx-auto w-full max-w-full rounded-lg bg-white dark:bg-dark-back lg:w-10/12 lg:max-w-4xl 2xl:max-w-6xl"

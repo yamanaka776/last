@@ -49,7 +49,6 @@
     "devDependencies": {
         "@biomejs/biome": "1.8.1",
         "@tailwindcss/typography": "^0.5.13",
-        "@textlint/textlint-plugin-markdown": "^14.0.4",
         "rehype-accessible-emojis": "^0.3.2"
     }
 }
