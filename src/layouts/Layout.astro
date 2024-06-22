@@ -12,7 +12,6 @@ const schema = JSON.stringify({
 	url: canonicalURL,
 	description: meta,
 });
-import '../global.css';
 ---
 
 <html lang="ja">
@@ -21,25 +20,6 @@ import '../global.css';
     >
         <meta charset="utf-8" />
         <script is:inline>
-        function aimi() {let sora = document.createElement('div');
-sora.innerText = 'あああああ';
-sora.setAttribute('class', 'ad-detect');
-let parentnode = document.getElementById('yuria');
-parentnode.prepend(sora);
-        }
-        function async detectAdBlock() {
-  let adBlockEnabled = false
-  const googleAdUrl = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-  try {
-    await fetch(new Request(googleAdUrl)).catch(_ => adBlockEnabled = true)
-  } catch (e) {
-    adBlockEnabled = true
-  } 
-            if (adBlockEnabled === true){aimi()};
-
-}
-detectAdBlock()
-            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
             if (
                 localStorage.getItem('color-theme') === 'dark' ||
                 (!('color-theme' in localStorage) &&
