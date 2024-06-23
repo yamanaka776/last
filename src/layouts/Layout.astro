@@ -33,16 +33,16 @@ const schema = JSON.stringify({
             title="RSS Feed for My Website"
             href="/rss.xml"
         />
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" type="text/css"  />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <script type="application/ld+json" set:html={schema} is:inline />
         <title>{title}</title>
         <style is:global>
-    
             body {
         font-family:'BIZ UDGothic', sans-serif;
             }
-            :root {
+            body {
                 --pagefind-ui-scale: 0.65;
 --pagefind-ui-primary: #034ad8;
 --pagefind-ui-text: #393939;
