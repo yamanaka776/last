@@ -1,104 +1,131 @@
 ---
-const { info, meta, og, title, date } = Astro.props;
-import { Breadcrumbs } from "astro-breadcrumbs";
-import { Icon } from "astro-icon/components";
-import Layout from "../layouts/Layout.astro";
+const { info, meta, og, title, date } = Astro.props
+import { Breadcrumbs } from 'astro-breadcrumbs'
+import { Icon } from 'astro-icon/components'
+import Layout from '../layouts/Layout.astro'
 const customCrumbs = [
-	{
-		text: "Home",
-		href: "/",
-	},
-	{
-		text: info,
-		href: `/category/${info}/1/`,
-	},
-	{
-		text: title,
-		href: "#",
-	},
-];
-import "astro-breadcrumbs/breadcrumbs.css";
+  {
+    text: 'Home',
+    href: '/',
+  },
+  {
+    text: info,
+    href: `/category/${info}/1/`,
+  },
+  {
+    text: title,
+    href: '#',
+  },
+]
+import 'astro-breadcrumbs/breadcrumbs.css'
 ---
 
 <Layout og={og} title={title} meta={meta}>
-    <div class="dark:!text-dark-text !text-main-text ml-2">
-        <div class="my-2">
-            <Breadcrumbs crumbs={customCrumbs}>
-  <svg
-    slot="separator"
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    ><polyline points="9 18 15 12 9 6"></polyline>
-  </svg>
-        </Breadcrumbs>
-        </div>
+  <div class="dark:!text-dark-text !text-main-text ml-2">
+    <div class="my-2">
+      <Breadcrumbs crumbs={customCrumbs}>
+        <svg
+          slot="separator"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </Breadcrumbs>
     </div>
-    <article>
-        <h1 class="ml-3 text-center my-3 text-4xl font-bold text-main-text dark:text-dark-text">
-            {title}
-        </h1>
-        <div class="flex items-stretch">
-            <p class="publishedAt m-4 text-xl text-sub-text dark:text-dark-text">
-                {new Intl.DateTimeFormat('ja-JP').format(date)}
-            </p>
+  </div>
+  <article>
+    <h1
+      class="ml-3 text-center my-3 text-4xl font-bold text-main-text dark:text-dark-text"
+    >
+      {title}
+    </h1>
+    <div class="flex items-stretch">
+      <p class="publishedAt m-4 text-xl text-sub-text dark:text-dark-text">
+        {new Intl.DateTimeFormat('ja-JP').format(date)}
+      </p>
+      <a
+        href={`/category/${info}/1/`}
+        class="m-2 h-fit rounded-full bg-red-100 px-2.5 py-0.5 font-bold text-red-800 dark:bg-red-900 dark:text-red-300"
+        >{info}</a
+      >
+      <div class="ml-auto flex">
         <a
-                href={`/category/${info}/1/`}
-            class="m-2  h-fit rounded-full bg-red-100 px-2.5 py-0.5 font-bold text-red-800 dark:bg-red-900 dark:text-red-300"
-            >{info}</a
+          href={`https://b.hatena.ne.jp/entry/s/${Astro.url}`}
+          class="ml-4"
+          aria-label="はてなブックマークに共有"
         >
-            <div class="ml-auto flex">
-                <a href={`https://b.hatena.ne.jp/entry/s/${Astro.url}`} class="ml-4" aria-label="はてなブックマークに共有">
-                    <Icon
-                        name="cib:hatena-bookmark"
-                        class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
-                    />
-                </a>
-                <a href={`https://twitter.com/intent/tweet?url=${Astro.url}`} class="mx-4" aria-label="Xに共有">
-                    <Icon
-                        name="prime:twitter"
-                        class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
-                    />
-                </a>
-                <a href="https://ear-diary.com/rss.xml" aria-label="rssフィードへのリンク">
-                    <Icon
-                        name="tabler:rss"
-                        class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
-                    />
-                </a>
-            </div>
-        </div>
-        <div
-class="prose prose-h2:border-b-2  prose-h2:border-gray-400/30 prose-h3:border-b-2 prose-h3:border-gray-300/30  mx-auto mt-2 w-full text-main-text dark:prose-invert lg:prose-xl dark:!text-dark-text">
-<div class="w-[38em] mx-auto max-w-full" data-pagefind-body>
-            <slot />
-</div>
-        </div>
-        <div class="mx-auto flex h-fit w-fit rounded-lg border-2 border-slate-400 p-3">
-            <a href={`https://b.hatena.ne.jp/entry/s/${Astro.url}`} class="ml-4" aria-label="はてなブックマークに共有">
-                <Icon
-                    name="cib:hatena-bookmark"
-                    class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
-                />
-            </a>
-            <a href={`https://twitter.com/intent/tweet?url=${Astro.url}`} class="mx-4" aria-label="Xに共有">
-                <Icon
-                    name="prime:twitter"
-                    class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
-                />
-            </a>
-            <a href="https://ear-diary.com/rss.xml" aria-label="rssフィードへのリンク">
-                <Icon
-                    name="tabler:rss"
-                    class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
-                />
-            </a>
-        </div>
-    </article>
+          <Icon
+            name="cib:hatena-bookmark"
+            class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
+          />
+        </a>
+        <a
+          href={`https://twitter.com/intent/tweet?url=${Astro.url}`}
+          class="mx-4"
+          aria-label="Xに共有"
+        >
+          <Icon
+            name="prime:twitter"
+            class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
+          />
+        </a>
+        <a
+          href="https://ear-diary.com/rss.xml"
+          aria-label="rssフィードへのリンク"
+        >
+          <Icon
+            name="tabler:rss"
+            class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
+          />
+        </a>
+      </div>
+    </div>
+    <div
+      class="prose prose-h2:border-b-2 prose-h2:border-gray-400/30 prose-h3:border-b-2 prose-h3:border-gray-300/30 mx-auto mt-2 w-full text-main-text dark:prose-invert lg:prose-xl dark:!text-dark-text"
+    >
+      <div class="w-[38em] mx-auto max-w-full" data-pagefind-body>
+        <slot />
+      </div>
+    </div>
+    <div
+      class="mx-auto flex h-fit w-fit rounded-lg border-2 border-slate-400 p-3"
+    >
+      <a
+        href={`https://b.hatena.ne.jp/entry/s/${Astro.url}`}
+        class="ml-4"
+        aria-label="はてなブックマークに共有"
+      >
+        <Icon
+          name="cib:hatena-bookmark"
+          class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
+        />
+      </a>
+      <a
+        href={`https://twitter.com/intent/tweet?url=${Astro.url}`}
+        class="mx-4"
+        aria-label="Xに共有"
+      >
+        <Icon
+          name="prime:twitter"
+          class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
+        />
+      </a>
+      <a
+        href="https://ear-diary.com/rss.xml"
+        aria-label="rssフィードへのリンク"
+      >
+        <Icon
+          name="tabler:rss"
+          class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"
+        />
+      </a>
+    </div>
+  </article>
 </Layout>

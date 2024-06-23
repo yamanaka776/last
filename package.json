@@ -35,7 +35,6 @@
         "astro-robots-txt": "^1.0.0",
         "cheerio": "1.0.0-rc.12",
         "pagefind": "^1.1.0",
-        "qrcode": "^1.5.3",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "rehype-auto-ads": "^1.1.2",
@@ -48,8 +47,15 @@
         "typescript": "^5.5.2"
     },
     "devDependencies": {
-        "@biomejs/biome": "1.8.1",
         "@tailwindcss/typography": "^0.5.13",
+        "eslint": "^9.5.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-astro": "^1.2.2",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-jsx-a11y": "^6.9.0",
+        "prettier": "^3.3.2",
+        "prettier-plugin-astro": "^0.14.0",
+        "prettier-plugin-organize-imports": "^3.2.4",
         "rehype-accessible-emojis": "^0.3.2"
     }
 }

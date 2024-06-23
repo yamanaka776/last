@@ -6,8 +6,6 @@ meta: about
 og: https://ear-diary.com/ear.png
 ---
 
-# このブログについて
-
 ## 概要
 
 このブログは『耳日記』というブログです。
