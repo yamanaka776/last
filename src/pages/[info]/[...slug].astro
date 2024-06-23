@@ -45,7 +45,7 @@ const allPosts = await getCollection("blog");
             {
                 allPosts
                     .filter((post) => post.data.info.includes(entry.data.info))
-                    .filter((penis) => penis.data.info != entry.data.info)
+                    .filter((penis) => penis.slug != entry.slug)
                     .slice(0, 2)
                     .map((post: any) => (
                         <li class="w-max-full m-2 rounded-lg bg-[#f3f3f3] pl-1 shadow-xl dark:bg-[#383d43]">
