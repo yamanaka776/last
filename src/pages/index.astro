@@ -63,7 +63,7 @@ const uniqueTags = [...new Set(allPosts.flatMap((post) => post.data.info))];
                             href={`/${post.data.info}/${post.slug}`}
                                             aria-label={`${post.slug}にアクセス`}
                                         >
-                                            <div class="sm:test-4xl text-2xl font-bold">
+                                            <div class="sm:test-4xl text-2xl font-bold truncate">
                                                 {post.data.title}
                                             </div>
                                             <div class="flex w-full flex-wrap">
