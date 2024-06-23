@@ -15,7 +15,7 @@ export async function GET(context) {
 		items: blogs.map((conten) => ({
 			title: conten.data.title,
 			pubDate: conten.data.pubDate,
-			link: `blog/${conten.slug}/`,
+			link: `${conten.data.info}/${conten.slug}/`,
 		})),
 		stylesheet: "/rss/styles.xsl",
 	});

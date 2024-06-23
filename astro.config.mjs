@@ -12,7 +12,6 @@ import partytown from "@astrojs/partytown";
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import mdx from "@astrojs/mdx";
 import remarkLinkCard from 'remark-link-card';
-
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), robotsTxt({
