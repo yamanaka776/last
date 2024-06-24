@@ -13,14 +13,43 @@ export async function getStaticPaths() {
 const { entry } = Astro.props
 const { Content, headings } = await entry.render()
 const allPosts = await getCollection('blog')
+const schema = (entry.data.pubDate.getTime() == entry.data.updateDate.getTime()
+  ? JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: entry.data.title,
+      name: entry.data.title,
+      datePublished: entry.data.pubDate,
+      dateModified: entry.data.updateDate,
+      author: {
+        '@type': 'Person',
+        name: '星野 慧',
+      },
+      url: Astro.url,
+    })
+  : JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: entry.data.title,
+      name: entry.data.title,
+      datePublished: entry.data.pubDate,
+      dateModified: entry.data.updateDate,
+      author: {
+        '@type': 'Person',
+        name: '星野 慧',
+      },
+      url: Astro.url,
+    }))
 ---
 
 <Article
   title={entry.data.title}
   meta={entry.data.meta}
-  og=`https://ear-diary.com/og/${entry.slug}.png`
+  og={`https://ear-diary.com/og/${entry.slug}.png`}
   info={entry.data.info}
-  date={entry.data.pubDate}
+  pubDate={entry.data.pubDate}
+  updateDate={entry.data.updateDate}
+  schema={schema}
 >
   <aside class="toc h-fit w-fit rounded-lg border-2 border-slate-400 p-1">
     <div class="text-lg font-bold text-main-text dark:text-dark-text">目次</div>

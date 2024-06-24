@@ -7,9 +7,21 @@ if (posts.length > 10) {
 }
 const allPosts = await getCollection('blog')
 const uniqueTags = [...new Set(allPosts.flatMap((post) => post.data.info))]
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const schema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: '耳日記',
+  url: canonicalURL,
+})
 ---
 
-<Layout meta="index page" title="index" og="https://ear-diary.com/ear.png">
+<Layout
+  meta="index page"
+  title="index"
+  og="https://ear-diary.com/ear.png"
+  schema={schema}
+>
   <div class="w-full dark:bg-dark-back dark:text-dark-text">
     <div class="rounded-lg border-2 border-slate-400">
       <p class="text-center text-lg text-main-text dark:text-dark-text">
