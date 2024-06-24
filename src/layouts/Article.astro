@@ -61,11 +61,11 @@ const updatedate = new Date(updateDate)
       </p>
       <a
         href={`/category/${info}/1/`}
-        class="mx-2 text-xl h-fit rounded-full bg-red-100 px-2.5 py-0.5 font-bold text-red-800 dark:bg-red-900 dark:text-red-300"
+        class="m-4 text-xl h-fit rounded-full bg-red-100 px-2.5 py-0.5 font-bold text-red-800 dark:bg-red-900 dark:text-red-300"
         >{info}</a
       >
       <div class="ml-auto flex">
-        <p class="text-xl text-main-text dark:text-dark-text">
+        <p class="m-4 text-xl text-main-text dark:text-dark-text">
           著者:
           <a
             href="https://ear-diary.com/whoisme"
@@ -76,7 +76,7 @@ const updatedate = new Date(updateDate)
         </p>
         <a
           href={`https://b.hatena.ne.jp/entry/s/${Astro.url}`}
-          class="ml-4"
+          class="m-4"
           aria-label="はてなブックマークに共有"
         >
           <Icon
@@ -86,7 +86,7 @@ const updatedate = new Date(updateDate)
         </a>
         <a
           href={`https://twitter.com/intent/tweet?url=${Astro.url}`}
-          class="mx-4"
+          class="m-4"
           aria-label="Xに共有"
         >
           <Icon
@@ -97,7 +97,7 @@ const updatedate = new Date(updateDate)
         <a
           href="https://ear-diary.com/rss.xml"
           aria-label="rssフィードへのリンク"
-        >
+class="m-4">
           <Icon
             name="tabler:rss"
             class="text-2xl text-blue-400 dark:text-slate-200 lg:text-4xl"

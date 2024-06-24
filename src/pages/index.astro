@@ -8,12 +8,12 @@ if (posts.length > 10) {
 const allPosts = await getCollection('blog')
 const uniqueTags = [...new Set(allPosts.flatMap((post) => post.data.info))]
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-const schema = JSON.stringify({
+const schema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: '耳日記',
   url: canonicalURL,
-})
+}
 ---
 
 <Layout

@@ -1,10 +1,10 @@
 ---
 import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer'
+import { Schema } from "astro-seo-schema"
 const { og, meta, title, schema } = Astro.props
 import { Icon } from 'astro-icon/components'
 import Search from '../components/Search.astro'
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-const schema1 = JSON.stringify(schema)
 ---
 
 <html lang="ja">
@@ -12,6 +12,7 @@ const schema1 = JSON.stringify(schema)
     prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"
   >
     <meta charset="utf-8" />
+    <Schema item={schema} />
     <GoogleFontsOptimizer
       url="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&display=swap"
     />
@@ -31,7 +32,6 @@ const schema1 = JSON.stringify(schema)
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <script type="application/ld+json" set:html={schema1} is:inline />
     <title>{title}</title>
     <style is:global>
       body {
@@ -62,10 +62,7 @@ const schema1 = JSON.stringify(schema)
       }
     </style>
   </head>
-  <body class="w-full dark:bg-dark-back">
-    <div
-      class="mx-auto w-full max-w-full lg:w-10/12 lg:max-w-4xl 2xl:max-w-6xl"
-    >
+  <body class="lg:w-10/12 lg:max-w-4xl 2xl:max-w-6xl mx-auto mac-w-full dark:bg-dark-back">
       <header class="rounded w-ful flex md:h-16 h-24 p-2 shadow">
         <Icon
           name="tabler:ear"
@@ -85,7 +82,6 @@ const schema1 = JSON.stringify(schema)
       <main class="dark:bg-dark-back" id="yuria">
         <slot />
       </main>
-    </div>
     <footer
       class="m-4 mx-auto w-full max-w-full rounded-lg bg-white dark:bg-dark-back lg:w-10/12 lg:max-w-4xl 2xl:max-w-6xl"
     >
