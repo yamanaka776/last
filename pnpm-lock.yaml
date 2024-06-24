@@ -32,6 +32,9 @@ importers:
       '@iconify-json/cib':
         specifier: ^1.1.8
         version: 1.1.8
+      '@iconify-json/material-symbols':
+        specifier: ^1.1.82
+        version: 1.1.82
       '@iconify-json/ph':
         specifier: ^1.1.13
         version: 1.1.13
@@ -541,6 +544,9 @@ packages:
 
   '@iconify-json/cib@1.1.8':
     resolution: {integrity: sha512-wL7uxAq8pC9la11dRSHUrz4g4cNLhoR8VC/rnmTcswER/vICNgUYt7vNs0VVaGjC6G1dTY+iyKS4ooRCXChsqw==}
+
+  '@iconify-json/material-symbols@1.1.82':
+    resolution: {integrity: sha512-E67LgMFiAbEVF7rE38ulZU6NeXcPvayFF4hUUqt3g33tWrLsDNqEFTSsPt03l34rH5uGGtHIakTqtBlZ+/hRkw==}
 
   '@iconify-json/ph@1.1.13':
     resolution: {integrity: sha512-xtM4JJ63HCKj09WRqrBswXiHrpliBlqboWSZH8odcmqYXbvIFceU9/Til4V+MQr6+MoUC+KB72cxhky2+A6r/g==}
@@ -3957,6 +3963,10 @@ snapshots:
     optional: true
 
   '@iconify-json/cib@1.1.8':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/material-symbols@1.1.82':
     dependencies:
       '@iconify/types': 2.0.0
 

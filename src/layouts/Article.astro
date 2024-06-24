@@ -50,12 +50,14 @@ const updatedate = new Date(updateDate)
     </h1>
     <div class="flex flex-wrap items-stretch">
       <p class="publishedAt m-4 text-xl text-sub-text dark:text-dark-text">
+        <Icon name="material-symbols:date-range" class="inline" />
         <time datetime={pubdate}>
           {new Intl.DateTimeFormat('ja-JP').format(pubdate)}</time
         >
       </p>
       <p class="publishedAt m-4 text-xl text-sub-text dark:text-dark-text">
-        更新: <time datetime={updatedate}
+        <Icon name="material-symbols:update"  class="inline"/>
+      <time datetime={updatedate}
           >{new Intl.DateTimeFormat('ja-JP').format(updatedate)}</time
         >
       </p>

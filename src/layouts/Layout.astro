@@ -60,6 +60,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
           --pagefind-ui-tag: #152028;
         }
       }
+      .pagefind-ui__drawer { background-color:#ffffff;}
+      @media (prefers-color-scheme: dark) {
+        .pagefind-ui__drawer { background-color:#ffffff;}}
     </style>
   </head>
   <body class="lg:w-10/12 lg:max-w-4xl 2xl:max-w-6xl mx-auto mac-w-full dark:bg-dark-back">
