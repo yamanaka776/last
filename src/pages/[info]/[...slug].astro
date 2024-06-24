@@ -13,35 +13,36 @@ export async function getStaticPaths() {
 const { entry } = Astro.props
 const { Content, headings } = await entry.render()
 const allPosts = await getCollection('blog')
-const schema = (entry.data.pubDate.getTime() == entry.data.updateDate.getTime()
-  ? JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      'headline': entry.data.title,
-      'name': entry.data.title,
-      'datePublished': entry.data.pubDate,
-      'dateModified': entry.data.updateDate,
-      'author': {
-        '@type': 'Person',
-        'name': '星野 慧',
-      'url': 'https://ear-diary.com/whoisme/',
-      },
-      'url': Astro.url,
-    })
-  : JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      'headline': entry.data.title,
-      'name': entry.data.title,
-      'datePublished': entry.data.pubDate,
-      'dateModified': entry.data.updateDate,
-      'author': {
-        '@type': 'Person',
-        'name': '星野 慧',
-        'url': 'https://ear-diary.com/whoisme/',
-      },
-      'url': Astro.url,
-    }))
+const schema =
+  entry.data.pubDate.getTime() == entry.data.updateDate.getTime()
+    ? JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: entry.data.title,
+        name: entry.data.title,
+        datePublished: entry.data.pubDate,
+        dateModified: entry.data.updateDate,
+        author: {
+          '@type': 'Person',
+          name: '星野 慧',
+          url: 'https://ear-diary.com/whoisme/',
+        },
+        url: Astro.url,
+      })
+    : JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: entry.data.title,
+        name: entry.data.title,
+        datePublished: entry.data.pubDate,
+        dateModified: entry.data.updateDate,
+        author: {
+          '@type': 'Person',
+          name: '星野 慧',
+          url: 'https://ear-diary.com/whoisme/',
+        },
+        url: Astro.url,
+      })
 ---
 
 <Article

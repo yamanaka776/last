@@ -31,7 +31,7 @@ const schema1 = JSON.stringify(schema)
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <script type="application/ld+json" set:html={schema1} is:inline ></script>
+    <script type="application/ld+json" set:html={schema1} is:inline />
     <title>{title}</title>
     <style is:global>
       body {
@@ -76,7 +76,9 @@ const schema1 = JSON.stringify(schema)
           class="ml-0 mt-px text-xl font-bold dark:text-dark-text md:text-4xl"
           >耳日記</a
         >
-        <div class="ml-auto mr-0 w-1/4 max-w-1/4 dark:bg-[#152028] bg-[#ffffff]">
+        <div
+          class="ml-auto mr-0 w-1/4 max-w-1/4 dark:bg-[#152028] bg-[#ffffff]"
+        >
           <Search />
         </div>
       </header>

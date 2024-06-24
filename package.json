@@ -48,15 +48,10 @@
     },
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.13",
-        "eslint": "^9.5.0",
-        "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-astro": "^1.2.2",
-        "eslint-plugin-import": "^2.29.1",
-        "eslint-plugin-jsx-a11y": "^6.9.0",
         "prettier": "^3.3.2",
         "prettier-plugin-astro": "^0.14.0",
         "prettier-plugin-organize-imports": "^3.2.4",
-        "rehype-accessible-emojis": "^0.3.2",
-        "wrangler": "^3.61.0"
+        "prettier-plugin-tailwindcss": "^0.6.5",
+        "rehype-accessible-emojis": "^0.3.2"
     }
 }
