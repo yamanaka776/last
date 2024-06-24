@@ -2,9 +2,13 @@
 import { getCollection } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 let posts = await getCollection('blog')
+function descTimeSort(a, b) {
+  return a < b ? 1 : -1;
+}
 if (posts.length > 10) {
   posts = posts.slice(0, 9)
 }
+posts.sort((a,b)=> descTimeSort(a.data.updateDate, b.data.updateDate))
 const allPosts = await getCollection('blog')
 const uniqueTags = [...new Set(allPosts.flatMap((post) => post.data.info))]
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)

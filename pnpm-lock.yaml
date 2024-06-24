@@ -32,6 +32,9 @@ importers:
       '@iconify-json/cib':
         specifier: ^1.1.8
         version: 1.1.8
+      '@iconify-json/icon-park-outline':
+        specifier: ^1.1.15
+        version: 1.1.15
       '@iconify-json/material-symbols':
         specifier: ^1.1.82
         version: 1.1.82
@@ -544,6 +547,9 @@ packages:
 
   '@iconify-json/cib@1.1.8':
     resolution: {integrity: sha512-wL7uxAq8pC9la11dRSHUrz4g4cNLhoR8VC/rnmTcswER/vICNgUYt7vNs0VVaGjC6G1dTY+iyKS4ooRCXChsqw==}
+
+  '@iconify-json/icon-park-outline@1.1.15':
+    resolution: {integrity: sha512-jQbk/ETARyYPjX6HolkdjSLJHsNCfSBfYUqcUQLXYK/1tfuVnQsUdWG2IM2a7VBpxJtrK7r4n1iwPOFaZ5T46g==}
 
   '@iconify-json/material-symbols@1.1.82':
     resolution: {integrity: sha512-E67LgMFiAbEVF7rE38ulZU6NeXcPvayFF4hUUqt3g33tWrLsDNqEFTSsPt03l34rH5uGGtHIakTqtBlZ+/hRkw==}
@@ -3963,6 +3969,10 @@ snapshots:
     optional: true
 
   '@iconify-json/cib@1.1.8':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/icon-park-outline@1.1.15':
     dependencies:
       '@iconify/types': 2.0.0
 

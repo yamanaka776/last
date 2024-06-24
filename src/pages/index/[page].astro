@@ -6,12 +6,19 @@ export async function getStaticPaths({ paginate }) {
   return paginate(posts, { pageSize: 10 })
 }
 const { page } = Astro.props
+function descTimeSort(a, b) {
+  return a < b ? 1 : -1;
+}
+if (posts.length > 10) {
+  posts = posts.slice(0, 9)
+}
+const peni = page.sort((a,b)=> descTimeSort(a.data.data.updateDate, b.data.data.updateDate))
 ---
 
 <Layout meta="index page" title="index">
   <ul>
     {
-      page.data.map((post: any) => (
+      peni.data.map((post: any) => (
         <li class="rouded-xl m-2 w-full bg-[#f3f3f3] pl-1 shadow-lg dark:bg-[#383d43]">
           <a
             href={`/${post.data.info}/${post.slug}`}
