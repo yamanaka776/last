@@ -81,6 +81,7 @@ const schema = {
             <ul>
               {allPosts
                 .filter((post) => post.data.info.includes(tag))
+                .sort((a,b)=> descTimeSort(a.data.updateDate, b.data.updateDate))
                 .map((post: any) => (
                   <li class="w-max-full m-2 rounded-lg bg-[#f3f3f3] pl-1 shadow-xl dark:bg-[#383d43]">
                     <a
