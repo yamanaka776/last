@@ -50,7 +50,7 @@ export default defineConfig({
       adCode: '<div class="mx-auto"></div>',
       countFrom: 2,
       paragraphInterval: 5
-    }], rehypeAccessibleEmojis],
+    }]],
     remarkRehype: {
       footnoteLabel: '脚注',
       footnoteBackLabel: 'コンテンツに戻る'
