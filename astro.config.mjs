@@ -9,9 +9,9 @@ import robotsTxt from 'astro-robots-txt';
 import { defineConfig } from 'astro/config';
 import rehypeAutoAds from "rehype-auto-ads";
 import partytown from "@astrojs/partytown";
-import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import mdx from "@astrojs/mdx";
 import remarkLinkCard from 'remark-link-card';
+import emoji from 'remark-emoji';
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), robotsTxt({
@@ -54,6 +54,7 @@ export default defineConfig({
     remarkRehype: {
       footnoteLabel: '脚注',
       footnoteBackLabel: 'コンテンツに戻る'
-    }
+    },
+    remrkPlugins: [[emoji, { accessible: true }]]
   }
 });

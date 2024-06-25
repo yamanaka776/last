@@ -3,12 +3,12 @@ import { getCollection } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 let posts = await getCollection('blog')
 function descTimeSort(a, b) {
-  return a < b ? 1 : -1;
+  return a < b ? 1 : -1
 }
 if (posts.length > 10) {
   posts = posts.slice(0, 9)
 }
-posts.sort((a,b)=> descTimeSort(a.data.updateDate, b.data.updateDate))
+posts.sort((a, b) => descTimeSort(a.data.updateDate, b.data.updateDate))
 const allPosts = await getCollection('blog')
 const uniqueTags = [...new Set(allPosts.flatMap((post) => post.data.info))]
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
@@ -81,7 +81,9 @@ const schema = {
             <ul>
               {allPosts
                 .filter((post) => post.data.info.includes(tag))
-                .sort((a,b)=> descTimeSort(a.data.updateDate, b.data.updateDate))
+                .sort((a, b) =>
+                  descTimeSort(a.data.updateDate, b.data.updateDate),
+                )
                 .map((post: any) => (
                   <li class="w-max-full m-2 rounded-lg bg-[#f3f3f3] pl-1 shadow-xl dark:bg-[#383d43]">
                     <a

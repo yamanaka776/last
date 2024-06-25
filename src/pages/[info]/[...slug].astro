@@ -16,30 +16,30 @@ const allPosts = await getCollection('blog')
 const schema =
   entry.data.pubDate.getTime() == entry.data.updateDate.getTime()
     ? {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
         headline: entry.data.title,
         name: entry.data.title,
         datePublished: entry.data.pubDate,
         dateModified: entry.data.updateDate,
         author: {
-          "@type": "Person",
-          name: "星野 徹",
-          url: "https://ear-diary.com/whoisme/",
+          '@type': 'Person',
+          name: '山中慧',
+          url: 'https://ear-diary.com/whoisme/',
         },
         url: Astro.url,
       }
     : {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
         headline: entry.data.title,
         name: entry.data.title,
         datePublished: entry.data.pubDate,
         dateModified: entry.data.updateDate,
         author: {
-          "@type": "Person",
-          name: "星野 慧",
-          url: "https://ear-diary.com/whoisme/",
+          '@type': 'Person',
+          name: '星野 慧',
+          url: 'https://ear-diary.com/whoisme/',
         },
         url: Astro.url,
       }
@@ -91,12 +91,6 @@ const schema =
                   {post.data.title}
                 </div>
                 <div class="flex w-full flex-wrap">
-                  <a
-                    href={`/${post.data.info}/1`}
-                    class="dark: me-2 block rounded-full bg-red-100 bg-red-900 px-2.5 py-0.5 text-red-800 dark:text-red-300"
-                  >
-                    {post.data.info}
-                  </a>
                   <time
                     datetime={post.data.pubDate.toISOString()}
                     class="ml-1 block w-fit text-sub-text dark:text-dark-text"

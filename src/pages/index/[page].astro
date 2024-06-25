@@ -7,9 +7,11 @@ export async function getStaticPaths({ paginate }) {
 }
 const { page } = Astro.props
 function descTimeSort(a, b) {
-  return a < b ? 1 : -1;
+  return a < b ? 1 : -1
 }
-const peni = page.data.sort((a,b)=> descTimeSort(a.data.updateDate, b.data.updateDate))
+const peni = page.data.sort((a, b) =>
+  descTimeSort(a.data.updateDate, b.data.updateDate),
+)
 ---
 
 <Layout meta="index page" title="index">

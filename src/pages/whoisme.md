@@ -7,5 +7,6 @@ og: https://ear-diary.com/ear.png
 ---
 
 ## 自己紹介
-氏名：星野　徹
+
+氏名：山中慧
 職業：学生

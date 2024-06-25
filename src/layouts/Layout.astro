@@ -1,6 +1,6 @@
 ---
 import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer'
-import { Schema } from "astro-seo-schema"
+import { Schema } from 'astro-seo-schema'
 const { og, meta, title, schema } = Astro.props
 import { Icon } from 'astro-icon/components'
 import Search from '../components/Search.astro'
@@ -12,6 +12,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"
   >
     <meta charset="utf-8" />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
     <Schema item={schema} />
     <GoogleFontsOptimizer
       url="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&display=swap"
@@ -19,7 +21,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     <meta property="og:type" content="blog" />
     <meta property="og:image" content={og} />
     <meta name="description" content={meta} />
-    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="author" href="http://www.hatena.ne.jp/ysuitable/" />
     <meta name="viewport" content="width=device-width" />
@@ -32,7 +33,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <title>{title}</title>
     <style is:global>
       body {
         font-family: 'BIZ UDGothic', sans-serif;
@@ -60,31 +60,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
           --pagefind-ui-tag: #152028;
         }
       }
-      .pagefind-ui__drawer { background-color:#ffffff;}
-      @media (prefers-color-scheme: dark) {
-        .pagefind-ui__drawer { background-color:#ffffff;}}
     </style>
   </head>
-  <body class="lg:w-10/12 lg:max-w-4xl 2xl:max-w-6xl mx-auto mac-w-full dark:bg-dark-back">
-      <header class="rounded w-ful flex md:h-16 h-24 p-2 shadow">
-        <Icon
-          name="tabler:ear"
-          class="text-xl dark:text-dark-text md:text-4xl"
-        />
-        <a
-          href="/"
-          class="ml-0 mt-px text-xl font-bold dark:text-dark-text md:text-4xl"
-          >耳日記</a
-        >
-        <div
-          class="ml-auto mr-0 w-1/4 max-w-1/4 dark:bg-[#152028] bg-[#ffffff]"
-        >
-          <Search />
-        </div>
-      </header>
-      <main class="dark:bg-dark-back" id="yuria">
-        <slot />
-      </main>
+  <body
+    class="lg:w-10/12 lg:max-w-4xl 2xl:max-w-6xl w-full mx-auto max-w-full dark:bg-dark-back"
+  >
+    <header class="rounded w-ful flex md:h-16 h-24 p-2 shadow">
+      <Icon name="tabler:ear" class="text-xl dark:text-dark-text md:text-4xl" />
+      <a
+        href="/"
+        class="ml-0 mt-px text-xl font-bold dark:text-dark-text md:text-4xl"
+        >耳日記</a
+      >
+    </header>
+    <main class="dark:bg-dark-back" id="yuria">
+      <slot />
+    </main>
+    <Search />
     <footer
       class="m-4 mx-auto w-full max-w-full rounded-lg bg-white dark:bg-dark-back lg:w-10/12 lg:max-w-4xl 2xl:max-w-6xl"
     >
