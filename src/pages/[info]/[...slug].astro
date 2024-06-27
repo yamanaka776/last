@@ -17,7 +17,7 @@ const schema =
   entry.data.pubDate.getTime() == entry.data.updateDate.getTime()
     ? {
         '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
+        '@type': 'Article',
         headline: entry.data.title,
         name: entry.data.title,
         datePublished: entry.data.pubDate,
@@ -30,7 +30,7 @@ const schema =
       }
     : {
         '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
+        '@type': 'Article',
         headline: entry.data.title,
         name: entry.data.title,
         datePublished: entry.data.pubDate,
