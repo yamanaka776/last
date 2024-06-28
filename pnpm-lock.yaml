@@ -104,6 +104,12 @@ importers:
       rehype-citation:
         specifier: ^2.0.0
         version: 2.0.0
+      rehype-external-links:
+        specifier: ^3.0.0
+        version: 3.0.0
+      rehype-raw:
+        specifier: ^7.0.0
+        version: 7.0.0
       remark-emoji:
         specifier: ^5.0.0
         version: 5.0.0
@@ -2131,6 +2137,10 @@ packages:
   inline-style-parser@0.2.3:
     resolution: {integrity: sha512-qlD8YNDqyTKTyuITrDOffsl6Tdhv+UC4hcdAVuQsK4IMQ99nSgd1MIA/Q+jQYoh9r3hVUXhYh7urSRmXPkW04g==}
 
+  is-absolute-url@4.0.1:
+    resolution: {integrity: sha512-/51/TKE88Lmm7Gc4/8btclNXWS+g50wXhYJq8HWIBAGUBnoAdRu1aXeh364t/O7wXDAcTJDP8PNuNKWUDWie+A==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+
   is-alphabetical@2.0.1:
     resolution: {integrity: sha512-FWyyY60MeTNyeSRpkM2Iry0G9hpr7/9kD40mD/cGQEuilcZYS4okz8SN2Q6rLCJ8gbCt6fN+rC+6tMGS99LaxQ==}
 
@@ -3079,6 +3089,9 @@ packages:
 
   rehype-citation@2.0.0:
     resolution: {integrity: sha512-rGawTBI8SJA1Y4IRyROvpYF6oXBVNFXlJYHIJ2jJH3HgeuCbAC9AO8wE/NMPLDOPQ8+Q8QkZm93fKsnUNbvwZA==}
+
+  rehype-external-links@3.0.0:
+    resolution: {integrity: sha512-yp+e5N9V3C6bwBeAC4n796kc86M4gJCdlVhiMTxIrJG5UHDMh+PJANf9heqORJbt1nrCbDwIlAZKjANIaVBbvw==}
 
   rehype-parse@9.0.0:
     resolution: {integrity: sha512-WG7nfvmWWkCR++KEkZevZb/uw41E8TsH4DsY9UxsTbIXCVGbAs4S+r8FrQ+OtH5EEQAs+5UxKC42VinkmpA1Yw==}
@@ -6168,6 +6181,8 @@ snapshots:
 
   inline-style-parser@0.2.3: {}
 
+  is-absolute-url@4.0.1: {}
+
   is-alphabetical@2.0.1: {}
 
   is-alphanumerical@2.0.1:
@@ -7275,6 +7290,15 @@ snapshots:
       unist-util-visit: 5.0.0
     transitivePeerDependencies:
       - encoding
+
+  rehype-external-links@3.0.0:
+    dependencies:
+      '@types/hast': 3.0.4
+      '@ungap/structured-clone': 1.2.0
+      hast-util-is-element: 3.0.0
+      is-absolute-url: 4.0.1
+      space-separated-tokens: 2.0.2
+      unist-util-visit: 5.0.0
 
   rehype-parse@9.0.0:
     dependencies:
