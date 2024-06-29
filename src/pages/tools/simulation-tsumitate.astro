@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import App from "../../components/App.jsx";
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  applicationCategory: 'Investment'
+};
+
+const title = "正規分布積立シュミレーター";
+const meta = "正規分布積立シュミレーターは、リターンを平均リターンを中心とする正規分布ととらえ、積立投資をシュミレーションします。これにより、より正確なシュミレーションを行うことが可能になりました。";
+---
+
+<Layout title={title} meta={meta} schema={schema}>
+  <div class="w-11/12 bg-red-500">
+    <ul class="text-dark-text">
+      <li>このツールは積立投資をシュミレーションするものです。</li>
+    </ul>
+  </div>
+  <App client:load />
+</Layout>
