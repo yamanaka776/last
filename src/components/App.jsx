@@ -43,10 +43,10 @@ const App = () => {
   
   const [data, setData] = useState(() => calculate(annualRisk, annualReturn, year, invest, initialInvest));
   
-  const calculate = () => {
+  const do = () => {
     setData(calculate(annualRisk, annualReturn, year, invest, initialInvest));
   }
-  const claer = () => {
+  const clear = () => {
   setAnnualRisk("");
   setAnnualReturn("");
   setYear("");
@@ -95,7 +95,7 @@ const App = () => {
       </div>
       <div className="flex">
       <button　onClick={clear} className="dark:text-dark-text text-main-text text-lg">クリア</button>
-      <button onClick={calculate} className="dark:text-dark-text text-main-text text-lg">計算</button>
+      <button onClick={do} className="dark:text-dark-text text-main-text text-lg">計算</button>
       </div>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart
@@ -107,7 +107,7 @@ const App = () => {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month" >
           <Label value="月" offset={0} position="insideBottom" />
-          <XAxis />
+          </XAxis>
           <YAxis />
           <Tooltip />
           <Legend />

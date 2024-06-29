@@ -1,0 +1,78 @@
+---
+title: 正規分布で積立投資をシュミレーションするツールを作った
+pubDate: 2024-06-29
+updateDate: 2024-06-29
+info: 投資
+meta: 正規分布を使って投資をシュミレーションするツールを作った。正規分布を用いることによりより正確なシュミレーションが可能だ。
+---
+
+## はじめに
+正規分布で投資をシュミレーションするツールを作った。ツールは:link:[こちら](https://ear-diary.com/tools/simulation-tsumitate/)からアクセスできる。
+## 作った動機
+新NISAが始まって早半年。新NISAを機に投資を始めた人も多くいるだろう。特に、インデックスファンドの積立が人気だ。  
+
+積立投資をシュミレーションするサイトは多くあり、多くの人が利用している。
+
+https://go.sbisec.co.jp/prd/common/tsumitate_simulation.html
+
+https://www.fsa.go.jp/policy/nisa2/tsumitate-simulator/
+
+これらのツールは、平均リターンを複利で計算することで投資結果をシュミレーションしている。最近、こうしたシュミレーションを基に複利の効果を説く言説が多く見られる。しかし、こうしたシュミレーションは全くもって正確ではない。平均リターンが毎年続くわけではないからだ。
+
+当然平均リターンを下回ることもあるし、逆に大きく上回ることもある、マイナスになることだってある。だから、平均リターンを基に複利で計算しても、正確な結果は得られない。こうした批判は以下のサイトに詳しい。
+
+https://www.nikkoam.com/20lab/learn/golden-rule/golden-rule-column-017
+
+今回はそんな問題意識をもとに、より正確な投資シュミレーションツールを作った。
+## 方法
+投資をシュミレーションする上で、以下の前提条件を設定した。
+
+- 未来の価格は過去の結果とは一切関係がなく、予測不可能である(ランダム・ウォーク)
+- リターンは平均リターンを中央値とする正規分布である
+
+その上で、具体的なコードを解説する。
+
+```javascript
+function generateNormalData(mu, sigma, sampleSize) {
+    return Array.from({length: sampleSize}, () => {
+        const u1 = Math.random();
+        const u2 = Math.random();
+        const z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+        return z0 * sigma + mu;
+    });
+}
+```
+まずこのコードで正規分布の乱数を生成している。muは平均リターン、sigmaは標準偏差（リスク）、sampleSizeはデータの数だ。
+
+```javascript
+let calculate = (annualRisk, annualReturn, years, monthlyInvest, initialInvestment) => {
+    annualRisk /= 100;
+    annualReturn /= 100;
+    const months = years * 12;
+    const monthlyReturn = Math.log(1 + annualReturn) / 12;
+    const monthlyRisk = annualRisk / Math.sqrt(12);
+
+    let totalInvestment = initialInvestment;
+    let principal = initialInvestment;
+
+    const rawdata = generateNormalData(monthlyReturn, monthlyRisk, months);
+    const money = rawdata.map((monthlyReturnRate, index) => {
+        totalInvestment = totalInvestment * Math.exp(monthlyReturnRate) + monthlyInvest;
+        principal += monthlyInvest;
+        const profit = (totalInvestment - principal) / principal * 100;
+        return {
+            month: index + 1,
+            value: totalInvestment,
+            principal: principal,
+            profit: profit
+        };
+    });
+
+    return money;
+};
+```
+まず年率のリスクとリターンを月率へ変換している。その後データをもとに投資をシュミレーションしている。ここで、年単位ではなく月単位で計算している。
+## さいごに
+ツールのコードはgithubで公開している。
+
+https://github.com/yamanaka776/last/blob/cd09d6ea0b142b22010d9153eb5f48d614499452/src/components/App.jsx
