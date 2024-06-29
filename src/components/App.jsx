@@ -108,8 +108,6 @@ const App = () => {
           <XAxis dataKey="month" >
           <Label value="月" offset={0} position="insideBottom" />
           <XAxis />
-          <YAxis >
-          <Label value="額" offset={0} position="insideLeft" />
           <YAxis />
           <Tooltip />
           <Legend />
