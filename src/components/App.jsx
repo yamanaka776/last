@@ -63,6 +63,7 @@ const App = () => {
         value={annualRisk}
         onChange={(e) => setAnnualRisk(Number(e.target.value))}
             type="number"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       />
       </div>
       <div>
@@ -71,6 +72,7 @@ const App = () => {
         value={annualReturn}
         onChange={(e) => setAnnualReturn(Number(e.target.value))}
             type="number"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       />
       </div>
       <div>
@@ -79,6 +81,7 @@ const App = () => {
         value={year}
         onChange={(e) => setYear(Number(e.target.value))}
             type="number"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       />
       </div>
       <div>
@@ -87,6 +90,7 @@ const App = () => {
         value={invest}
         onChange={(e) => setInvest(Number(e.target.value))}
             type="number"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       />
       </div>
       <div>
@@ -95,12 +99,13 @@ const App = () => {
         value={initialInvest}
         onChange={(e) => setInitialInvest(Number(e.target.value))}
             type="number"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       />
       </div>
       </div>
       <div className="flex">
       <button　onClick={handleClear} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">クリア</button>
-      <button onClick={handleCalculate} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">計算</button>
+      <button onClick={handleCalculate} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">計算</button>
       </div>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart
@@ -116,9 +121,9 @@ const App = () => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line name="総運用額" dataKey="value" stroke="#8884d8" type="linear" />
-          <Line name="元本" dataKey="principal" stroke="#82ca9d" type="linear" />
-          <Line name="運用益" dataKey="profit" stroke="#ffc658" type="linear" />
+          <Line name="総運用額" dataKey="value" stroke="#8884d8" type="basis" />
+          <Line name="元本" dataKey="principal" stroke="#82ca9d" type="basis" />
+          <Line name="運用益" dataKey="profit" stroke="#ffc658" type="basis" />
         </LineChart>
       </ResponsiveContainer>
     </div>
