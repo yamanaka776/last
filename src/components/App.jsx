@@ -55,8 +55,8 @@ const App = () => {
   }
 
   return (
-    <div className="App">
-      <div className="flex">
+    <div className="App w-full">
+      <div className="flex dark:text-dark-text text-main-text flex-wrap">
       <div>
       リスク(年率）<br />
       <input
@@ -106,14 +106,14 @@ const App = () => {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month" >
-          <Label value="月" offset={0} position="insideBottom" />
+          <Label value="月" position="insideBottom" />
           </XAxis>
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line name="総運用額" dataKey="value" stroke="#8884d8" type="basis" />
-          <Line name="元本" dataKey="principal" stroke="#82ca9d" type="basis" />
-          <Line name="運用益" dataKey="profit" stroke="#ffc658" type="basis" />
+          <Line name="総運用額" dataKey="value" stroke="#8884d8" type="linear" />
+          <Line name="元本" dataKey="principal" stroke="#82ca9d" type="linear" />
+          <Line name="運用益" dataKey="profit" stroke="#ffc658" type="linear" />
         </LineChart>
       </ResponsiveContainer>
     </div>
