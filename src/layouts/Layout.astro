@@ -37,41 +37,41 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
       body {
         font-family: 'BIZ UDGothic', sans-serif;
       }
-    .rlc-container {
-  @apply text-gray-600 border border-solid border-slate-400 rounded w-full flex items-stretch transition-all delay-75 hover:opacity-75;
-}
+      .rlc-container {
+        @apply flex w-full items-stretch rounded border border-solid border-slate-400 text-gray-600 transition-all delay-75 hover:opacity-75;
+      }
 
-.rlc-info {
-  @apply p-2 text-left flex-4-100 flex flex-col justify-between overflow-hidden dark:text-dark-text text-main-text;
-}
+      .rlc-info {
+        @apply flex flex-4-100 flex-col justify-between overflow-hidden p-2 text-left text-main-text dark:text-dark-text;
+      }
 
-.rlc-title {
-  @apply text-xl leading-10 whitespace-nowrap text-ellipsis overflow-hidden dark:text-dark-text text-main-text;
-}
+      .rlc-title {
+        @apply overflow-hidden text-ellipsis whitespace-nowrap text-xl leading-10 text-main-text dark:text-dark-text;
+      }
 
-.rlc-description {
-  @apply text-sm h-10 overflow-hidden dark:text-dark-text text-main-text;
-}
+      .rlc-description {
+        @apply h-10 overflow-hidden text-sm text-main-text dark:text-dark-text;
+      }
 
-.rlc-url-container {
-  @apply flex items-center;
-}
+      .rlc-url-container {
+        @apply flex items-center;
+      }
 
-.rlc-favicon {
-  @apply mr-1 w-4 h-4;
-}
+      .rlc-favicon {
+        @apply mr-1 h-4 w-4;
+      }
 
-.rlc-url {
-  @apply text-base whitespace-nowrap text-ellipsis overflow-hidden text-sub-text;
-}
+      .rlc-url {
+        @apply overflow-hidden text-ellipsis whitespace-nowrap text-base text-sub-text;
+      }
 
-.rlc-image-container {
-  @apply flex-1-100 relative;
-}
+      .rlc-image-container {
+        @apply relative flex-1-100;
+      }
 
-.rlc-image {
-  @apply rounded-tr rounded-br w-full h-full object-cover;
-}
+      .rlc-image {
+        @apply h-full w-full rounded-br rounded-tr object-cover;
+      }
       body {
         --pagefind-ui-scale: 0.65;
         --pagefind-ui-primary: #034ad8;
