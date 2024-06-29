@@ -99,8 +99,8 @@ const App = () => {
       </div>
       </div>
       <div className="flex">
-      <button　onClick={handleClear} className="dark:text-dark-text text-main-text text-lg">クリア</button>
-      <button onClick={handleCalculate} className="dark:text-dark-text text-main-text text-lg">計算</button>
+      <button　onClick={handleClear} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">クリア</button>
+      <button onClick={handleCalculate} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">計算</button>
       </div>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart
