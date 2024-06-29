@@ -43,10 +43,10 @@ const App = () => {
   
   const [data, setData] = useState(() => calculate(annualRisk, annualReturn, year, invest, initialInvest));
   
-  const do = () => {
+  const handleCalculate = () => {
     setData(calculate(annualRisk, annualReturn, year, invest, initialInvest));
   }
-  const clear = () => {
+  const handleClear = () => {
   setAnnualRisk("");
   setAnnualReturn("");
   setYear("");
@@ -94,8 +94,8 @@ const App = () => {
       </div>
       </div>
       <div className="flex">
-      <button　onClick={clear} className="dark:text-dark-text text-main-text text-lg">クリア</button>
-      <button onClick={do} className="dark:text-dark-text text-main-text text-lg">計算</button>
+      <button　onClick={handleClear} className="dark:text-dark-text text-main-text text-lg">クリア</button>
+      <button onClick={handleCalculate} className="dark:text-dark-text text-main-text text-lg">計算</button>
       </div>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart
