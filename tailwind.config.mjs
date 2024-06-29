@@ -13,6 +13,10 @@ export default {
                 'dark-back': '#23282F',
                 'dark-text': '#E6E6E6',
             },
+              flex: {
+        '1-100': '1 1 100px',
+        '4-100': '4 1 100px'
+      },
         },
     },
 };
