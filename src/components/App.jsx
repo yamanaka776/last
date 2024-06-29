@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer ,Label} from 'recharts';
 function generateNormalData(mu, sigma, sampleSize) {
     return Array.from({length: sampleSize}, () => {
         const u1 = Math.random();
