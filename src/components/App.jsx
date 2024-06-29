@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer ,Label} from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
+
 function generateNormalData(mu, sigma, sampleSize) {
     return Array.from({length: sampleSize}, () => {
         const u1 = Math.random();
@@ -34,78 +35,92 @@ let calculate = (annualRisk, annualReturn, years, monthlyInvest, initialInvestme
 
     return money;
 };
+
 const App = () => {
-  const [annualRisk, setAnnualRisk] = useState(5);
-  const [annualReturn, setAnnualReturn] = useState(5);
-  const [year, setYear] = useState(10);
-  const [invest, setInvest] = useState(3);
-  const [initialInvest, setInitialInvest] = useState(5);
+  const [annualRisk, setAnnualRisk] = useState('5');
+  const [annualReturn, setAnnualReturn] = useState('5');
+  const [year, setYear] = useState('10');
+  const [invest, setInvest] = useState('3');
+  const [initialInvest, setInitialInvest] = useState('5');
   
-  const [data, setData] = useState(() => calculate(annualRisk, annualReturn, year, invest, initialInvest));
+  const [data, setData] = useState(() => calculate(
+    parseFloat(annualRisk) || 0,
+    parseFloat(annualReturn) || 0,
+    parseFloat(year) || 0,
+    parseFloat(invest) || 0,
+    parseFloat(initialInvest) || 0
+  ));
   
   const handleCalculate = () => {
-    setData(calculate(annualRisk, annualReturn, year, invest, initialInvest));
+    setData(calculate(
+      parseFloat(annualRisk) || 0,
+      parseFloat(annualReturn) || 0,
+      parseFloat(year) || 0,
+      parseFloat(invest) || 0,
+      parseFloat(initialInvest) || 0
+    ));
   }
+
   const handleClear = () => {
-  setAnnualRisk("");
-  setAnnualReturn("");
-  setYear("");
-  setInvest("");
-  setInitialInvest("");
+    setAnnualRisk('');
+    setAnnualReturn('');
+    setYear('');
+    setInvest('');
+    setInitialInvest('');
   }
 
   return (
     <div className="App w-full">
       <div className="flex dark:text-dark-text text-main-text flex-wrap">
-      <div>
-      リスク(年率）<br />
-      <input
-        value={annualRisk}
-        onChange={(e) => setAnnualRisk(Number(e.target.value))}
+        <div>
+          リスク(年率）<br />
+          <input
+            value={annualRisk}
+            onChange={(e) => setAnnualRisk(e.target.value)}
             type="number"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      />
-      </div>
-      <div>
-リターン(年率) <br />
-      <input
-        value={annualReturn}
-        onChange={(e) => setAnnualReturn(Number(e.target.value))}
+          />
+        </div>
+        <div>
+          リターン(年率) <br />
+          <input
+            value={annualReturn}
+            onChange={(e) => setAnnualReturn(e.target.value)}
             type="number"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      />
-      </div>
-      <div>
-      年数 <br />
-      <input
-        value={year}
-        onChange={(e) => setYear(Number(e.target.value))}
+          />
+        </div>
+        <div>
+          年数 <br />
+          <input
+            value={year}
+            onChange={(e) => setYear(e.target.value)}
             type="number"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      />
-      </div>
-      <div>
-      毎月の積立額 <br />
-      <input
-        value={invest}
-        onChange={(e) => setInvest(Number(e.target.value))}
+          />
+        </div>
+        <div>
+          毎月の積立額 <br />
+          <input
+            value={invest}
+            onChange={(e) => setInvest(e.target.value)}
             type="number"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      />
-      </div>
-      <div>
-      初期投資額 <br />
-      <input
-        value={initialInvest}
-        onChange={(e) => setInitialInvest(Number(e.target.value))}
+          />
+        </div>
+        <div>
+          初期投資額 <br />
+          <input
+            value={initialInvest}
+            onChange={(e) => setInitialInvest(e.target.value)}
             type="number"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      />
-      </div>
+          />
+        </div>
       </div>
       <div className="flex">
-      <button　onClick={handleClear} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">クリア</button>
-      <button onClick={handleCalculate} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">計算</button>
+        <button onClick={handleClear} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">クリア</button>
+        <button onClick={handleCalculate} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">計算</button>
       </div>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart
@@ -116,7 +131,7 @@ const App = () => {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month" >
-          <Label value="月" position="insideBottom" />
+            <Label value="月" position="bottom" />
           </XAxis>
           <YAxis />
           <Tooltip />
