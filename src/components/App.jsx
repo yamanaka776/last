@@ -62,6 +62,7 @@ const App = () => {
       <input
         value={annualRisk}
         onChange={(e) => setAnnualRisk(Number(e.target.value))}
+            type="number"
       />
       </div>
       <div>
@@ -69,6 +70,7 @@ const App = () => {
       <input
         value={annualReturn}
         onChange={(e) => setAnnualReturn(Number(e.target.value))}
+            type="number"
       />
       </div>
       <div>
@@ -76,6 +78,7 @@ const App = () => {
       <input
         value={year}
         onChange={(e) => setYear(Number(e.target.value))}
+            type="number"
       />
       </div>
       <div>
@@ -83,6 +86,7 @@ const App = () => {
       <input
         value={invest}
         onChange={(e) => setInvest(Number(e.target.value))}
+            type="number"
       />
       </div>
       <div>
@@ -90,6 +94,7 @@ const App = () => {
       <input
         value={initialInvest}
         onChange={(e) => setInitialInvest(Number(e.target.value))}
+            type="number"
       />
       </div>
       </div>
