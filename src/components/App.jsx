@@ -43,33 +43,60 @@ const App = () => {
   
   const [data, setData] = useState(() => calculate(annualRisk, annualReturn, year, invest, initialInvest));
   
-  const onClick = () => {
+  const calculate = () => {
     setData(calculate(annualRisk, annualReturn, year, invest, initialInvest));
+  }
+  const claer = () => {
+  setAnnualRisk("");
+  setAnnualReturn("");
+  setYear("");
+  setInvest("");
+  setInitialInvest("");
   }
 
   return (
     <div className="App">
+      <div className="flex">
+      <div>
+      リスク(年率）<br />
       <input
         value={annualRisk}
         onChange={(e) => setAnnualRisk(Number(e.target.value))}
       />
+      </div>
+      <div>
+リターン(年率) <br />
       <input
         value={annualReturn}
         onChange={(e) => setAnnualReturn(Number(e.target.value))}
       />
+      </div>
+      <div>
+      年数 <br />
       <input
         value={year}
         onChange={(e) => setYear(Number(e.target.value))}
       />
+      </div>
+      <div>
+      毎月の積立額 <br />
       <input
         value={invest}
         onChange={(e) => setInvest(Number(e.target.value))}
       />
+      </div>
+      <div>
+      初期投資額 <br />
       <input
         value={initialInvest}
         onChange={(e) => setInitialInvest(Number(e.target.value))}
       />
-      <button onClick={onClick}>計算</button>
+      </div>
+      </div>
+      <div className="flex">
+      <button　onClick={clear} className="dark:text-dark-text text-main-text text-lg">クリア</button>
+      <button onClick={calculate} className="dark:text-dark-text text-main-text text-lg">計算</button>
+      </div>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart
           data={data}
@@ -78,13 +105,17 @@ const App = () => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" />
+          <XAxis dataKey="month" >
+          <Label value="月" offset={0} position="insideBottom" />
+          <XAxis />
+          <YAxis >
+          <Label value="額" offset={0} position="insideLeft" />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line name="総運用額" dataKey="value" stroke="#8884d8" type="monotone" />
-          <Line name="元本" dataKey="principal" stroke="#82ca9d" type="monotone" />
-          <Line name="運用益" dataKey="profit" stroke="#ffc658" type="monotone" />
+          <Line name="総運用額" dataKey="value" stroke="#8884d8" type="basis" />
+          <Line name="元本" dataKey="principal" stroke="#82ca9d" type="basis" />
+          <Line name="運用益" dataKey="profit" stroke="#ffc658" type="basis" />
         </LineChart>
       </ResponsiveContainer>
     </div>
