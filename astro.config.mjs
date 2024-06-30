@@ -52,7 +52,9 @@ export default defineConfig({
 rehypeRaw,
       [
         rehypeExternalLinks,
-        { target: '_blank' },
+        { target: '_blank', 
+          rel:[noopener] 
+        },
       ],
       [rehypeAutoAds, {
       adCode: '<div class="mx-auto"></div>',
