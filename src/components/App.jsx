@@ -166,14 +166,14 @@ const App = () => {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month">
-            <Label value="月" position="bottom" />
+            <Label value="月" position="insideBottom" offset={10}/>
           </XAxis>
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line name="総運用額" dataKey="value" stroke="#8884d8" type="basis" />
-          <Line name="元本" dataKey="principal" stroke="#82ca9d" type="basis" />
-          <Line name="運用益" dataKey="profit" stroke="#ffc658" type="basis" />
+          <Line name="総運用額" dot={false} dataKey="value" stroke="#8884d8" type="basis" />
+          <Line name="元本" dot={false} dataKey="principal" stroke="#82ca9d" type="basis" />
+          <Line name="運用益" dot={false} dataKey="profit" stroke="#ffc658" type="basis" />
         </LineChart>
       </ResponsiveContainer>
     </div>
